@@ -1,3 +1,9 @@
+## [1.2.11](https://github.com/ryansutrisno/trazmediacom/compare/v1.2.10...v1.2.11) (2026-08-07)
+
+### Bug Fixes
+
+* switch to static output to fix image optimization on Vercel ([95341bc](https://github.com/ryansutrisno/trazmediacom/commit/95341bca8b1b239ac8eb978054705a13e54420bd))
+
 ## [1.2.10](https://github.com/ryansutrisno/trazmediacom/compare/v1.2.9...v1.2.10) (2026-08-07)
 
 ### Bug Fixes
