@@ -1,3 +1,9 @@
+## [1.1.1](https://github.com/ryansutrisno/trazmediacom/compare/v1.1.0...v1.1.1) (2026-08-07)
+
+### Chores
+
+* update og-image paths to use Thumbnail-Trazmedia files ([3e51254](https://github.com/ryansutrisno/trazmediacom/commit/3e51254323a37b66a44d628bb48952df9cbe2ebe))
+
 ## [1.1.0](https://github.com/ryansutrisno/trazmediacom/compare/v1.0.0...v1.1.0) (2026-08-07)
 
 ### Features
