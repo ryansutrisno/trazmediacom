@@ -1,3 +1,9 @@
+## [1.2.4](https://github.com/ryansutrisno/trazmediacom/compare/v1.2.3...v1.2.4) (2026-08-07)
+
+### Bug Fixes
+
+* add min-w to terminal container to prevent width shrink during typing ([e0795e8](https://github.com/ryansutrisno/trazmediacom/commit/e0795e8b756fb59ffaea7fd2c6eb92f5c33a36d6))
+
 ## [1.2.3](https://github.com/ryansutrisno/trazmediacom/compare/v1.2.2...v1.2.3) (2026-08-07)
 
 ### Bug Fixes
