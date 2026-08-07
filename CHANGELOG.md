@@ -1,3 +1,9 @@
+## [1.2.10](https://github.com/ryansutrisno/trazmediacom/compare/v1.2.9...v1.2.10) (2026-08-07)
+
+### Bug Fixes
+
+* replace runtime Image component with build-time getImage optimization ([cd64392](https://github.com/ryansutrisno/trazmediacom/commit/cd64392ed41fd3cc213f71f2f489346d34a17cc5))
+
 ## [1.2.9](https://github.com/ryansutrisno/trazmediacom/compare/v1.2.8...v1.2.9) (2026-08-07)
 
 ### Build System
