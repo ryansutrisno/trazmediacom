@@ -231,10 +231,6 @@ export const translations: Record<Locale, TranslationDict> = {
       description: 'Dapatkan jawaban untuk pertanyaan umum seputar layanan kami.',
       items: [
         {
-          question: 'Apakah sudah termasuk domain dan hosting?',
-          answer: 'Ya, setiap project yang kami kerjakan — baik website landing page, web apps, maupun mobile apps — sudah termasuk domain dan server/hosting agar bisa langsung digunakan.',
-        },
-        {
           question: 'Apakah bisa revisi selama pengerjaan?',
           answer: 'Tentu. Setiap project mendapatkan sesi revisi sesuai dengan jenis layanan. Kami pastikan hasil akhir sesuai dengan kebutuhan Anda.',
         },
@@ -490,10 +486,6 @@ export const translations: Record<Locale, TranslationDict> = {
       heading: 'Frequently Asked Questions',
       description: 'Get answers to common questions about our services.',
       items: [
-        {
-          question: 'Is domain and hosting included?',
-          answer: 'Yes, every project we work on — whether landing pages, web apps, or mobile apps — includes domain and server/hosting so it can go live immediately.',
-        },
         {
           question: 'Can I request revisions during development?',
           answer: 'Of course. Every project includes revision sessions based on the service type. We ensure the final result meets your needs.',
