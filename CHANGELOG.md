@@ -1,3 +1,9 @@
+## [1.2.5](https://github.com/ryansutrisno/trazmediacom/compare/v1.2.4...v1.2.5) (2026-08-07)
+
+### Bug Fixes
+
+* slow down terminal typing speed from 35ms to 70ms per char ([cf61167](https://github.com/ryansutrisno/trazmediacom/commit/cf611676c896ce4e25964f1f47123a02d1ce05a4))
+
 ## [1.2.4](https://github.com/ryansutrisno/trazmediacom/compare/v1.2.3...v1.2.4) (2026-08-07)
 
 ### Bug Fixes
