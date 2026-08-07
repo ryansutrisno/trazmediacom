@@ -1,3 +1,9 @@
+## [1.2.9](https://github.com/ryansutrisno/trazmediacom/compare/v1.2.8...v1.2.9) (2026-08-07)
+
+### Build System
+
+* add sharp dependency and update package config ([54e6990](https://github.com/ryansutrisno/trazmediacom/commit/54e699031cb5491ee0cd3c4cb3697f8cf5e56e96))
+
 ## [1.2.8](https://github.com/ryansutrisno/trazmediacom/compare/v1.2.7...v1.2.8) (2026-08-07)
 
 ### Bug Fixes
