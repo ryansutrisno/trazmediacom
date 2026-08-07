@@ -1,3 +1,9 @@
+## [1.2.8](https://github.com/ryansutrisno/trazmediacom/compare/v1.2.7...v1.2.8) (2026-08-07)
+
+### Bug Fixes
+
+* update footer social links to company URLs ([24f2ddd](https://github.com/ryansutrisno/trazmediacom/commit/24f2ddd7a17275a59819765ca4ea2411b9dd36e6))
+
 ## [1.2.7](https://github.com/ryansutrisno/trazmediacom/compare/v1.2.6...v1.2.7) (2026-08-07)
 
 ### Performance Improvements
