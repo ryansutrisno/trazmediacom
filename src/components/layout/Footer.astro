@@ -17,7 +17,7 @@ const copyright = t.footer.copyright.replace('{year}', String(year));
       <!-- Left: brand -->
       <div class="max-w-md">
         <a href={`/${locale}/`} class="inline-flex items-center gap-2" aria-label={t.site.name}>
-          <img src="/logo.svg" alt={t.site.name} class="h-9 w-auto brightness-0 invert" width="126" height="40" />
+          <img src="/logo.svg" alt={t.site.name} class="h-9 w-auto brightness-0 invert" width="126" height="40" loading="lazy" />
         </a>
         <p class="mt-5 text-lg font-semibold text-white">{t.footer.tagline}</p>
         <p class="mt-1 text-sm text-white/50">{t.footer.secondaryTagline}</p>
