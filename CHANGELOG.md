@@ -1,3 +1,9 @@
+## [1.1.0](https://github.com/ryansutrisno/trazmediacom/compare/v1.0.0...v1.1.0) (2026-08-07)
+
+### Features
+
+* bilingual OG images with locale-specific taglines (ID/EN) ([5d7bc81](https://github.com/ryansutrisno/trazmediacom/commit/5d7bc81a2ad36e05f290cc6dbbf4b18377587b5c))
+
 ## 1.0.0 (2026-08-07)
 
 ### ⚠ BREAKING CHANGES
