@@ -1,3 +1,9 @@
+## [1.2.1](https://github.com/ryansutrisno/trazmediacom/compare/v1.2.0...v1.2.1) (2026-08-07)
+
+### Bug Fixes
+
+* rewrite terminal typing animation with reliable character-by-character typewriter ([ecb7d5c](https://github.com/ryansutrisno/trazmediacom/commit/ecb7d5c1ee9dd45a43b1df3e79ac10ba02afacf2))
+
 ## [1.2.0](https://github.com/ryansutrisno/trazmediacom/compare/v1.1.1...v1.2.0) (2026-08-07)
 
 ### Features
