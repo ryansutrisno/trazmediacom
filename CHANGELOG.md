@@ -1,3 +1,9 @@
+## [1.2.2](https://github.com/ryansutrisno/trazmediacom/compare/v1.2.1...v1.2.2) (2026-08-07)
+
+### Bug Fixes
+
+* add min-height to terminal pre to prevent resize during typing animation ([244baa3](https://github.com/ryansutrisno/trazmediacom/commit/244baa379cb8c239eb1e2ef3bea8665b22eb3d92))
+
 ## [1.2.1](https://github.com/ryansutrisno/trazmediacom/compare/v1.2.0...v1.2.1) (2026-08-07)
 
 ### Bug Fixes
