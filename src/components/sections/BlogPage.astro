@@ -1,0 +1,58 @@
+---
+import type { Locale, TranslationDict } from '@/types/i18n';
+
+interface Props {
+  locale: Locale;
+  t: TranslationDict;
+}
+
+const { locale, t } = Astro.props;
+const b = t.blog;
+---
+
+<!-- Hero -->
+<section class="relative overflow-hidden bg-surface-alt py-24 lg:py-32">
+  <div class="pointer-events-none absolute -left-32 -top-20 h-96 w-96 rounded-full bg-accent-light blur-3xl opacity-60" aria-hidden="true"></div>
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl">
+      <p class="text-sm font-semibold uppercase tracking-widest text-primary">
+        {locale === 'id' ? 'Insight & Artikel' : 'Insights & Articles'}
+      </p>
+      <h1 class="mt-4 text-4xl font-extrabold leading-[1.1] tracking-tight text-text sm:text-5xl lg:text-6xl">
+        {b.hero.heading}
+      </h1>
+      <p class="mt-6 text-lg leading-relaxed text-text-muted">{b.hero.description}</p>
+    </div>
+  </div>
+</section>
+
+<!-- Coming Soon -->
+<section class="bg-surface py-24 lg:py-32">
+  <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+    <!-- Illustration: animated writing cursor + lines -->
+    <div class="relative mx-auto flex h-40 w-40 items-center justify-center">
+      <div class="absolute inset-0 rounded-full bg-primary-light" aria-hidden="true"></div>
+      <div class="absolute inset-0 rounded-full bg-primary-light motion-safe:animate-ping opacity-40" aria-hidden="true"></div>
+      <div class="relative flex h-24 w-24 items-center justify-center rounded-2xl border border-border bg-surface shadow-lg">
+        <svg class="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125" />
+        </svg>
+      </div>
+    </div>
+
+    <h2 class="mt-10 text-3xl font-bold tracking-tight text-text sm:text-4xl">{b.placeholder.heading}</h2>
+    <p class="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-text-muted">{b.placeholder.description}</p>
+
+    <!-- Skeleton article placeholders -->
+    <div class="mt-14 grid gap-6 sm:grid-cols-2">
+      {[0, 1, 2, 3].map((i) => (
+        <div class="flex flex-col gap-3 rounded-2xl border border-border bg-surface-alt p-6 text-left" aria-hidden="true">
+          <div class="h-32 w-full rounded-lg bg-border/60 motion-safe:animate-pulse" style={`animation-delay:${i * 150}ms`}></div>
+          <div class="h-4 w-2/3 rounded bg-border/60 motion-safe:animate-pulse"></div>
+          <div class="h-3 w-full rounded bg-border/40 motion-safe:animate-pulse"></div>
+          <div class="h-3 w-4/5 rounded bg-border/40 motion-safe:animate-pulse"></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

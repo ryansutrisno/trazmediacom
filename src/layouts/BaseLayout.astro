@@ -1,0 +1,54 @@
+---
+import type { Locale, TranslationDict } from '@/types/i18n';
+import { getAlternateLinks, getAlternateLocale } from '@i18n/index';
+import '@styles/global.css';
+
+interface Props {
+  locale: Locale;
+  t: TranslationDict;
+  title?: string;
+  description?: string;
+}
+
+const { locale, t, title, description } = Astro.props;
+const alternateLinks = getAlternateLinks(Astro.url.pathname);
+const metaPixelId = import.meta.env.PUBLIC_META_PIXEL_ID;
+const pageTitle = title ? `${title} | ${t.site.name}` : `${t.site.name} — ${t.site.tagline}`;
+const pageDesc = description ?? t.site.description;
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDesc} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.url.origin).href} />
+    
+    {alternateLinks.map(link => (
+      <link rel="alternate" hreflang={link.locale} href={new URL(link.href, Astro.url.origin).href} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={new URL('/id/', Astro.url.origin).href} />
+
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDesc} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={new URL(Astro.url.pathname, Astro.url.origin).href} />
+    <meta property="og:image" content={new URL(t.site.ogImage, Astro.url.origin).href} />
+    <meta property="og:locale" content={locale === 'id' ? 'id_ID' : 'en_US'} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    {metaPixelId && (
+      <script>
+        {`!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','${metaPixelId}');fbq('track','PageView');`}
+      </script>
+      <noscript><img height="1" width="1" style="display:none" src={`https://www.facebook.com/tr?id=${metaPixelId}&ev=PageView&noscript=1`} /></noscript>
+    )}
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,54 @@
+---
+import type { Locale, TranslationDict, ServicePillar } from '@/types/i18n';
+
+interface Props {
+  locale: Locale;
+  t: TranslationDict;
+}
+
+const { locale, t } = Astro.props;
+const pillars: ServicePillar[] = t.home.services.pillars;
+
+const icons: Record<ServicePillar['icon'], string> = {
+  web: `<path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 9h18M7 6.5h.01M10 6.5h.01"/>`,
+  mobile: `<path stroke-linecap="round" stroke-linejoin="round" d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M11 18h2"/>`,
+  fullstack: `<path stroke-linecap="round" stroke-linejoin="round" d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/>`,
+};
+---
+
+<section class="bg-surface-alt py-24 lg:py-28">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <!-- Heading -->
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="text-sm font-semibold uppercase tracking-widest text-primary">{t.home.services.heading}</p>
+      <h2 class="mt-3 text-3xl font-bold tracking-tight text-text sm:text-4xl">
+        {t.home.services.description}
+      </h2>
+    </div>
+
+    <!-- Cards -->
+    <div class="mt-14 grid gap-6 md:grid-cols-3">
+      {pillars.map((pillar, i) => (
+        <article
+          class="group relative flex flex-col rounded-2xl border border-border bg-surface p-8 transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5"
+          style={`animation-delay: ${i * 80}ms`}
+        >
+          <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-primary-light text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+            <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" set:html={icons[pillar.icon]} />
+          </div>
+          <h3 class="mt-6 text-xl font-bold text-text">{pillar.title}</h3>
+          <p class="mt-3 text-sm leading-relaxed text-text-muted">{pillar.description}</p>
+          <a
+            href={`/${locale}/services`}
+            class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary opacity-0 transition-all duration-300 group-hover:opacity-100"
+          >
+            {locale === 'id' ? 'Pelajari' : 'Learn more'}
+            <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5" />
+            </svg>
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

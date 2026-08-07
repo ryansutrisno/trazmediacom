@@ -1,0 +1,41 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { getTranslations } from '@i18n/index';
+import type { Locale } from '@/types/i18n';
+import Navbar from '@components/layout/Navbar.astro';
+import Footer from '@components/layout/Footer.astro';
+import MobileMenu from '@components/layout/MobileMenu.tsx';
+import WAFloatingButton from '@components/layout/WAFloatingButton.tsx';
+import PortfolioDetail from '@components/sections/PortfolioDetail.astro';
+
+export const prerender = true;
+
+const locale: Locale = 'id';
+
+export function getStaticPaths() {
+  const t = getTranslations('id');
+  return t.portfolio.projects.map((project) => ({
+    params: { slug: project.slug },
+  }));
+}
+
+const t = getTranslations(locale);
+const { slug } = Astro.params;
+const project = t.portfolio.projects.find((p) => p.slug === slug);
+
+if (!project) {
+  return Astro.redirect(`/${locale}/portfolio`);
+}
+
+const waNumber = import.meta.env.PUBLIC_WA_NUMBER;
+---
+
+<BaseLayout locale={locale} t={t} title={project.title} description={project.tagline}>
+  <Navbar locale={locale} t={t} />
+  <MobileMenu locale={locale} t={t} client:load />
+  <main>
+    <PortfolioDetail locale={locale} t={t} project={project} />
+  </main>
+  <Footer locale={locale} t={t} />
+  <WAFloatingButton waNumber={waNumber} message={t.cta.waMessage} client:load />
+</BaseLayout>

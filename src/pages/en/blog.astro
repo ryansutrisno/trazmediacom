@@ -1,0 +1,24 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { getTranslations } from '@i18n/index';
+import type { Locale } from '@/types/i18n';
+import Navbar from '@components/layout/Navbar.astro';
+import Footer from '@components/layout/Footer.astro';
+import MobileMenu from '@components/layout/MobileMenu.tsx';
+import WAFloatingButton from '@components/layout/WAFloatingButton.tsx';
+import BlogPage from '@components/sections/BlogPage.astro';
+
+const locale: Locale = 'en';
+const t = getTranslations(locale);
+const waNumber = import.meta.env.PUBLIC_WA_NUMBER;
+---
+
+<BaseLayout locale={locale} t={t} title={t.blog.hero.heading} description={t.blog.hero.description}>
+  <Navbar locale={locale} t={t} />
+  <MobileMenu locale={locale} t={t} client:load />
+  <main>
+    <BlogPage locale={locale} t={t} />
+  </main>
+  <Footer locale={locale} t={t} />
+  <WAFloatingButton waNumber={waNumber} message={t.cta.waMessage} client:load />
+</BaseLayout>
