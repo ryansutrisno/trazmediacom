@@ -1,3 +1,9 @@
+## [1.2.6](https://github.com/ryansutrisno/trazmediacom/compare/v1.2.5...v1.2.6) (2026-08-07)
+
+### Bug Fixes
+
+* reduce hero top padding on mobile, increase bottom padding to avoid WA button overlap ([6839220](https://github.com/ryansutrisno/trazmediacom/commit/683922073d6ebea00ebb60b90a4dba5cfed93c49))
+
 ## [1.2.5](https://github.com/ryansutrisno/trazmediacom/compare/v1.2.4...v1.2.5) (2026-08-07)
 
 ### Bug Fixes
