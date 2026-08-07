@@ -1,3 +1,9 @@
+## [1.2.0](https://github.com/ryansutrisno/trazmediacom/compare/v1.1.1...v1.2.0) (2026-08-07)
+
+### Features
+
+* add typing animation with scramble effect to hero terminal code ([6a3d986](https://github.com/ryansutrisno/trazmediacom/commit/6a3d9865046062fed62cd4bf1f669091195773dc))
+
 ## [1.1.1](https://github.com/ryansutrisno/trazmediacom/compare/v1.1.0...v1.1.1) (2026-08-07)
 
 ### Chores
