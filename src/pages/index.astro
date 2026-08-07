@@ -1,5 +1,10 @@
----
-const country = Astro.request.headers.get('x-vercel-ip-country')?.toUpperCase();
-const targetLocalePath = country === 'ID' || !country ? '/id/' : '/en/';
-return Astro.redirect(targetLocalePath);
----
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trazmedia</title>
+  <script>location.replace('/id/')</script>
+</head>
+<body></body>
+</html>
