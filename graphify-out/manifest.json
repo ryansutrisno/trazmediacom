@@ -1,0 +1,102 @@
+{
+  ".releaserc.json": {
+    "mtime": 1786094782.9737048,
+    "ast_hash": "5a51ee3c9a02ff1274c3c83cc1128739",
+    "semantic_hash": ""
+  },
+  ".vscode/extensions.json": {
+    "mtime": 1786094508.7564044,
+    "ast_hash": "3adedb22d082dbd1ebb00b75d21403aa",
+    "semantic_hash": ""
+  },
+  ".vscode/launch.json": {
+    "mtime": 1786094508.7572267,
+    "ast_hash": "60493763dcbc2d109e57da86d997602a",
+    "semantic_hash": ""
+  },
+  "astro.config.mjs": {
+    "mtime": 1786094836.9258466,
+    "ast_hash": "09a69c00099c4df497873017debbdfed",
+    "semantic_hash": ""
+  },
+  "package.json": {
+    "mtime": 1786094639.5920205,
+    "ast_hash": "0f0a13a77a1128592b0f8797b2703689",
+    "semantic_hash": ""
+  },
+  "src/i18n/index.ts": {
+    "mtime": 1786094765.2905638,
+    "ast_hash": "44f993c3f2ed0f55406f28ef1078ad12",
+    "semantic_hash": ""
+  },
+  "src/i18n/translations.ts": {
+    "mtime": 1786094765.2901576,
+    "ast_hash": "2850a4a3b39bb79897516200aa59f19c",
+    "semantic_hash": ""
+  },
+  "src/layouts/BaseLayout.astro": {
+    "mtime": 1786094771.7045436,
+    "ast_hash": "dde676573f0d4ac0b37bd3de57dcefa9",
+    "semantic_hash": ""
+  },
+  "src/pages/en/index.astro": {
+    "mtime": 1786094765.2988126,
+    "ast_hash": "001b9c914b3f9dfca8475132c87a8920",
+    "semantic_hash": ""
+  },
+  "src/pages/id/index.astro": {
+    "mtime": 1786094765.2983496,
+    "ast_hash": "08bcc88d8f6357b61144805b5401eb5a",
+    "semantic_hash": ""
+  },
+  "src/pages/index.astro": {
+    "mtime": 1786094748.928443,
+    "ast_hash": "1dbfc16a9714c515b423c1fc7cb05cbe",
+    "semantic_hash": ""
+  },
+  "src/types/i18n.ts": {
+    "mtime": 1786094765.2894597,
+    "ast_hash": "0bc509806bb2aa23927489cc56b4d648",
+    "semantic_hash": ""
+  },
+  "tsconfig.json": {
+    "mtime": 1786094639.600974,
+    "ast_hash": "9c1b7b56deaa58dd39a8af67c2f00b47",
+    "semantic_hash": ""
+  },
+  "vercel.json": {
+    "mtime": 1786094765.285382,
+    "ast_hash": "0e50705180943f611f0a8cefd0fb764d",
+    "semantic_hash": ""
+  },
+  ".github/workflows/release.yml": {
+    "mtime": 1786094782.982686,
+    "ast_hash": "e7a573bba02b0c40ccaaf29eae329725",
+    "semantic_hash": ""
+  },
+  "AGENTS.md": {
+    "mtime": 1786094508.7288947,
+    "ast_hash": "4d944a80d98bf8891d5b10081a86d3e1",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1786094508.7580369,
+    "ast_hash": "4d944a80d98bf8891d5b10081a86d3e1",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1786094744.8799174,
+    "ast_hash": "d0dbcc94b4d3df192c804aef2a1e99a5",
+    "semantic_hash": ""
+  },
+  "RELEASE.md": {
+    "mtime": 1786094782.9830298,
+    "ast_hash": "66acf044454f773c204046d0865c0f49",
+    "semantic_hash": ""
+  },
+  "public/favicon.svg": {
+    "mtime": 1786094508.7256124,
+    "ast_hash": "8c13f40658976ea1dfb8ba37a8be0e8d",
+    "semantic_hash": ""
+  }
+}
