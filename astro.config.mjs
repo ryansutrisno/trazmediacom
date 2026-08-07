@@ -8,7 +8,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  output: 'server',
   adapter: vercel(),
   site: process.env.PUBLIC_SITE_URL || 'https://trazmedia.com',
   i18n: {
