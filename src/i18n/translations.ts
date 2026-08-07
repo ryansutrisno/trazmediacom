@@ -8,7 +8,7 @@ export const translations: Record<Locale, TranslationDict> = {
       secondaryTagline: 'Bridging design + code + business',
       description: 'Trazmedia adalah software house Indonesia yang membantu UMKM naik kelas secara digital melalui web & mobile development.',
       url: 'https://trazmedia.com',
-      ogImage: '/og-image.png',
+      ogImage: '/og-image-id.png',
     },
     nav: [
       { label: 'Beranda', href: '/' },
@@ -264,7 +264,7 @@ export const translations: Record<Locale, TranslationDict> = {
       secondaryTagline: 'Bridging design + code + business',
       description: 'Trazmedia is an Indonesian software house helping UMKM level up digitally through web & mobile development.',
       url: 'https://trazmedia.com',
-      ogImage: '/og-image.png',
+      ogImage: '/og-image-en.png',
     },
     nav: [
       { label: 'Home', href: '/' },
