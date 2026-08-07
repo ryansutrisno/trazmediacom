@@ -1,3 +1,9 @@
+## [1.0.1](https://github.com/ryansutrisno/trazmediacom/compare/v1.0.0...v1.0.1) (2026-08-07)
+
+### Performance Improvements
+
+* replace raw img tags with Astro Image component for automatic optimization ([c286dc2](https://github.com/ryansutrisno/trazmediacom/commit/c286dc22ce033ee942a5b306c07c23c4f44afaea))
+
 ## 1.0.0 (2026-08-07)
 
 ### ⚠ BREAKING CHANGES
