@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { getImage } from 'astro:assets';
 import type { Locale, TranslationDict } from '@/types/i18n';
 
 interface Props {
@@ -15,6 +15,12 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/project
 const imageMap = new Map(
   Object.entries(images).map(([key, value]) => [key.replace('/src/assets', ''), value.default])
 );
+
+const optimizedImages = new Map<string, string>();
+for (const [key, image] of imageMap) {
+  const optimized = await getImage({ src: image, width: 640, height: 400, format: 'webp' });
+  optimizedImages.set(key, optimized.src);
+}
 ---
 
 <section class="bg-surface py-24 lg:py-28">
@@ -47,13 +53,15 @@ const imageMap = new Map(
         >
           <!-- Image -->
           <div class="relative aspect-[16/10] overflow-hidden bg-surface-alt">
-            {imageMap.has(project.image) && (
-              <Image
-                src={imageMap.get(project.image)!}
+            {optimizedImages.has(project.image) && (
+              <img
+                src={optimizedImages.get(project.image)!}
                 alt={project.title}
-                width={640}
-                height={400}
+                width="640"
+                height="400"
                 class="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
               />
             )}
             <div class="absolute inset-0 bg-gradient-to-t from-text/70 via-text/0 to-text/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
