@@ -1,3 +1,9 @@
+## [1.2.3](https://github.com/ryansutrisno/trazmediacom/compare/v1.2.2...v1.2.3) (2026-08-07)
+
+### Bug Fixes
+
+* add w-full to terminal pre to prevent width change during typing ([9f876aa](https://github.com/ryansutrisno/trazmediacom/commit/9f876aaa355d78dba9eb8f0ef3c2ba6a1b1dd146))
+
 ## [1.2.2](https://github.com/ryansutrisno/trazmediacom/compare/v1.2.1...v1.2.2) (2026-08-07)
 
 ### Bug Fixes
