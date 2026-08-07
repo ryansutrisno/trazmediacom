@@ -1,3 +1,9 @@
+## [1.2.7](https://github.com/ryansutrisno/trazmediacom/compare/v1.2.6...v1.2.7) (2026-08-07)
+
+### Performance Improvements
+
+* add loading=lazy to footer logo image ([bdcbcc0](https://github.com/ryansutrisno/trazmediacom/commit/bdcbcc08de9dfc75e37e0c7d1515158b5cbbf349))
+
 ## [1.2.6](https://github.com/ryansutrisno/trazmediacom/compare/v1.2.5...v1.2.6) (2026-08-07)
 
 ### Bug Fixes
