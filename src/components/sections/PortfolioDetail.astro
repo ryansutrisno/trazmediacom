@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import type { Locale, TranslationDict, PortfolioItem } from '@/types/i18n';
 
 interface Props {
@@ -12,6 +13,11 @@ const backLabel = locale === 'id' ? 'Kembali ke Portofolio' : 'Back to Portfolio
 const viewLabel = locale === 'id' ? 'Lihat Project' : 'View Project';
 const techLabel = locale === 'id' ? 'Tech Stack' : 'Tech Stack';
 const categoryLabel = locale === 'id' ? 'Kategori' : 'Category';
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/project-images/*.png', { eager: true });
+const imageMap = new Map(
+  Object.entries(images).map(([key, value]) => [key.replace('/src/assets', ''), value.default])
+);
 ---
 
 <!-- Hero -->
@@ -39,13 +45,15 @@ const categoryLabel = locale === 'id' ? 'Kategori' : 'Category';
 
     <!-- Hero image -->
     <div class="mt-12 overflow-hidden rounded-2xl border border-border bg-surface shadow-xl shadow-text/5">
-      <img
-        src={project.image}
-        alt={project.title}
-        width="1280"
-        height="800"
-        class="aspect-[16/9] w-full object-cover object-top"
-      />
+      {imageMap.has(project.image) && (
+        <Image
+          src={imageMap.get(project.image)!}
+          alt={project.title}
+          width={1280}
+          height={800}
+          class="aspect-[16/9] w-full object-cover object-top"
+        />
+      )}
     </div>
   </div>
 </section>

@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import type { Locale, TranslationDict } from '@/types/i18n';
 
 interface Props {
@@ -9,6 +10,11 @@ interface Props {
 
 const { locale, t, limit = 4 } = Astro.props;
 const projects = t.portfolio.projects.slice(0, limit);
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/project-images/*.png', { eager: true });
+const imageMap = new Map(
+  Object.entries(images).map(([key, value]) => [key.replace('/src/assets', ''), value.default])
+);
 ---
 
 <section class="bg-surface py-24 lg:py-28">
@@ -41,14 +47,15 @@ const projects = t.portfolio.projects.slice(0, limit);
         >
           <!-- Image -->
           <div class="relative aspect-[16/10] overflow-hidden bg-surface-alt">
-            <img
-              src={project.image}
-              alt={project.title}
-              loading="lazy"
-              width="640"
-              height="400"
-              class="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
-            />
+            {imageMap.has(project.image) && (
+              <Image
+                src={imageMap.get(project.image)!}
+                alt={project.title}
+                width={640}
+                height={400}
+                class="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
+              />
+            )}
             <div class="absolute inset-0 bg-gradient-to-t from-text/70 via-text/0 to-text/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
             <span class="absolute left-4 top-4 rounded-full bg-surface/90 px-3 py-1 text-xs font-semibold text-text backdrop-blur">
               {project.category}
