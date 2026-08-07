@@ -78,20 +78,78 @@ const waHref = `https://wa.me/${waNumber}?text=${encodeURIComponent(t.cta.waMess
               <span class="h-3 w-3 rounded-full bg-[#27c93f]"></span>
               <span class="ml-3 font-mono text-xs text-white/40">trazmedia.ts</span>
             </div>
-            <pre class="overflow-x-auto p-5 font-mono text-[13px] leading-relaxed"><code><span class="text-[#a78bfa]">const</span> <span class="text-[#7dd3fc]">trazmedia</span> <span class="text-white/60">=</span> <span class="text-white/60">{'{'}</span>
+            <pre id="terminal-code" class="relative overflow-x-auto p-5 font-mono text-[13px] leading-relaxed"><code><span class="text-[#a78bfa]">const</span> <span class="text-[#7dd3fc]">trazmedia</span> <span class="text-white/60">=</span> <span class="text-white/60">{'{'}</span>
   <span class="text-[#fcd34d]">founded</span>: <span class="text-[#86efac]">2017</span>,
   <span class="text-[#fcd34d]">base</span>: <span class="text-[#fda4af]">'Sleman, Yogyakarta'</span>,
   <span class="text-[#fcd34d]">stack</span>: <span class="text-white/60">[</span><span class="text-[#fda4af]">'React'</span>, <span class="text-[#fda4af]">'Astro'</span>, <span class="text-[#fda4af]">'Laravel'</span><span class="text-white/60">]</span>,
   <span class="text-[#fcd34d]">mission</span>: <span class="text-[#fda4af]">'Code that scales'</span>,
   <span class="text-[#a78bfa]">build</span>: <span class="text-white/60">(</span><span class="text-[#7dd3fc]">idea</span>: <span class="text-[#fda4af]">string</span><span class="text-white/60">)</span> <span class="text-[#a78bfa]">=&gt;</span>
     <span class="text-[#7dd3fc]">ship</span><span class="text-white/60">(</span><span class="text-[#7dd3fc]">design</span><span class="text-white/60">(</span><span class="text-[#7dd3fc]">code</span><span class="text-white/60">(</span><span class="text-[#7dd3fc]">idea</span><span class="text-white/60">)))</span>,
-<span class="text-white/60">{'}'}</span></code></pre>
+<span class="text-white/60">{'}'}</span></code><span id="terminal-cursor" class="inline-block h-[15px] w-[9px] animate-pulse bg-white/80 align-middle"></span></pre>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<script is:inline>
+  (function typeWriter() {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (mq.matches) return;
+
+    const code = document.getElementById('terminal-code');
+    const cursor = document.getElementById('terminal-cursor');
+    if (!code || !cursor) return;
+
+    const originalHTML = code.innerHTML;
+    let visible = false;
+
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !visible) {
+        visible = true;
+        startTyping();
+      }
+    }, { threshold: 0.3 });
+
+    function startTyping() {
+      const wrapper = document.createElement('span');
+      code.querySelector('code')!.textContent = '';
+      code.querySelector('code')!.appendChild(wrapper);
+
+      const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789[]{}=>\'(),.: ';
+      let i = 0;
+      let accumulated = '';
+
+      const interval = setInterval(() => {
+        if (i >= originalHTML.length) {
+          clearInterval(interval);
+          code.querySelector('code')!.innerHTML = originalHTML;
+          cursor.style.display = 'none';
+          return;
+        }
+
+        // Random scramble the current character
+        const target = originalHTML[i];
+        let scrambleCount = 0;
+        const scrambleInterval = setInterval(() => {
+          scrambleCount++;
+          if (scrambleCount > 3 || chars.includes(originalHTML[i])) {
+            clearInterval(scrambleInterval);
+            accumulated += originalHTML[i];
+            code.querySelector('code')!.innerHTML = accumulated;
+            i++;
+          } else {
+            const randomChar = chars[Math.floor(Math.random() * chars.length)];
+            code.querySelector('code')!.innerHTML = accumulated + '<span class="text-white/30">' + randomChar + '</span>';
+          }
+        }, 40);
+      }, 80);
+    }
+
+    observer.observe(code);
+  })();
+</script>
 
 <style>
   .reveal {
