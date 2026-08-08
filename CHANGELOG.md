@@ -1,3 +1,9 @@
+## [1.4.1](https://github.com/ryansutrisno/trazmediacom/compare/v1.4.0...v1.4.1) (2026-08-08)
+
+### Documentation
+
+* **i18n:** update project repository and demo urls ([7d2b218](https://github.com/ryansutrisno/trazmediacom/commit/7d2b21857a294b4fa650c6a47acb65f40f1fe27e))
+
 ## [1.4.0](https://github.com/ryansutrisno/trazmediacom/compare/v1.3.0...v1.4.0) (2026-08-08)
 
 ### Features
