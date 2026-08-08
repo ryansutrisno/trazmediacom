@@ -1,6 +1,7 @@
 ---
 import type { Locale, TranslationDict, ServicePillar } from '@/types/i18n';
 import SectionHeading from './SectionHeading.astro';
+import WaterRipple from '@/components/WaterRipple.astro';
 
 interface Props {
   locale: Locale;
@@ -32,8 +33,10 @@ const features: Record<ServicePillar['icon'], string[]> = {
 ---
 
 <!-- Hero -->
-<section class="relative overflow-hidden bg-surface-alt py-24 lg:py-32">
-  <div class="pointer-events-none absolute -left-32 -top-20 h-96 w-96 rounded-full bg-accent-light blur-3xl opacity-60" aria-hidden="true"></div>
+<section class="relative overflow-hidden bg-surface py-24 lg:py-32">
+  <div class="absolute -left-32 -top-40 h-[32rem] w-[32rem] rounded-full bg-primary-light blur-3xl opacity-80"></div>
+  <div class="absolute -right-24 top-20 h-[28rem] w-[28rem] rounded-full bg-accent-light blur-3xl opacity-70"></div>
+  <WaterRipple />
   <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="max-w-3xl">
       <p class="text-sm font-semibold uppercase tracking-widest text-primary">

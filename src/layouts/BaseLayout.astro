@@ -13,7 +13,7 @@ interface Props {
 
 const { locale, t, title, description } = Astro.props;
 const alternateLinks = getAlternateLinks(Astro.url.pathname);
-const metaPixelId = import.meta.env.PUBLIC_META_PIXEL_ID;
+const metaPixelId = import.meta.env.PUBLIC_META_PIXEL_ID || null;
 const pageTitle = title ? `${title} | ${t.site.name}` : `${t.site.name} — ${t.site.tagline}`;
 const pageDesc = description ?? t.site.description;
 ---
@@ -54,5 +54,99 @@ const pageDesc = description ?? t.site.description;
   </head>
   <body>
     <slot />
+    <script>
+      // Water ripple cursor effect — deferred, single global instance
+      (function d() {
+        if (document.readyState === 'loading') return document.addEventListener('DOMContentLoaded', d);
+        var idle = window.requestIdleCallback || function (fn) { setTimeout(fn, 200); };
+        idle(function () {
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+          var M = document.querySelectorAll('[data-wc-marker]');
+          if (!M.length) return;
+
+          var COLORS = [
+            { r: 56,g: 189,b: 248,a: 0.85 },
+            { r: 59,g: 130,b: 246,a: 0.75 },
+            { r: 99,g: 102,b: 241,a: 0.65 },
+            { r: 147,g: 197,b: 253,a: 0.7 },
+            { r: 239,g: 246,b: 255,a: 0.55 },
+          ];
+
+          var ct = document.createElement('div');
+          ct.setAttribute('aria-hidden', 'true');
+          ct.style.cssText = 'position:fixed;inset:0;pointer-events:none;z-index:50;display:none;';
+          document.body.appendChild(ct);
+
+          var dot = document.createElement('div');
+          dot.style.cssText = 'position:absolute;width:10px;height:10px;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(circle at 40% 40%,white,rgba(56,189,248,0.85),rgba(59,130,246,0.4));box-shadow:0 0 18px 4px rgba(56,189,248,0.5),0 0 36px 8px rgba(59,130,246,0.2);';
+          ct.appendChild(dot);
+
+          var rings = [], parts = [], pool = [];
+          var mx = 0, my = 0, tx = 0, ty = 0, raf = 0;
+          var MAX_R = 16, MAX_P = 120;
+
+          function alloc() {
+            var e = pool.pop();
+            if (!e) { e = document.createElement('div'); e.style.position = 'absolute'; e.style.borderRadius = '50%'; e.style.transform = 'translate(-50%,-50%)'; e.style.pointerEvents = 'none'; ct.appendChild(e); }
+            e.style.display = '';
+            return e;
+          }
+          function free(e) { e.style.display = 'none'; if (pool.length < 200) pool.push(e); }
+
+          function spawnRing(x, y, str) {
+            var r = { el: alloc(), x: x, y: y, radius: 2, maxR: 18 + str * 60, life: 1, spd: 1.4 + str * 1.8 };
+            r.el.style.left = x + 'px'; r.el.style.top = y + 'px';
+            rings.push(r);
+            while (rings.length > MAX_R) free(rings.shift().el);
+          }
+          function spawnBurst(x, y, str) {
+            var n = 4 + Math.floor(str * 10);
+            for (var i = 0; i < n; i++) {
+              var a = Math.random() * Math.PI * 2;
+              var f = (1 + Math.random() * 4) * str;
+              var c = COLORS[Math.floor(Math.random() * COLORS.length)];
+              var p = { el: alloc(), x: x, y: y, vx: Math.cos(a) * f, vy: Math.sin(a) * f + Math.random() * 1.5, life: 0.6 + Math.random() * 0.8, size: (1.5 + Math.random() * 3.5) * (1 + str), r: c.r, g: c.g, b: c.b, a: c.a };
+              p.el.style.left = x + 'px'; p.el.style.top = y + 'px';
+              p.el.style.background = 'radial-gradient(circle,rgba(' + p.r + ',' + p.g + ',' + p.b + ',' + p.a + '),transparent)';
+              p.el.style.boxShadow = '0 0 ' + (p.size * 2) + 'px rgba(' + p.r + ',' + p.g + ',' + p.b + ',' + (p.a * 0.5) + ')';
+              parts.push(p);
+            }
+            while (parts.length > MAX_P) free(parts.shift().el);
+          }
+
+          function tick() {
+            mx += (tx - mx) * 0.22; my += (ty - my) * 0.22;
+            dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+            for (var i = rings.length - 1; i >= 0; i--) {
+              var r = rings[i]; r.radius += r.spd; r.life -= 0.02;
+              if (r.life <= 0 || r.radius >= r.maxR) { free(r.el); rings.splice(i, 1); }
+              else { var al = r.life * (1 - r.radius / r.maxR); r.el.style.width = r.radius * 2 + 'px'; r.el.style.height = r.radius * 2 + 'px'; r.el.style.opacity = al < 0.005 ? '0' : al.toFixed(4); r.el.style.border = Math.max(0.8, 2.5 * r.life).toFixed(1) + 'px solid rgba(56,189,248,' + al.toFixed(4) + ')'; r.el.style.boxShadow = '0 0 ' + (r.radius * 0.5) + 'px rgba(56,189,248,' + (al * 0.3).toFixed(4) + ')'; }
+            }
+            for (var j = parts.length - 1; j >= 0; j--) {
+              var p = parts[j]; p.life -= 0.012; p.vy += 0.04; p.x += p.vx; p.y += p.vy; p.size *= 0.992;
+              if (p.life <= 0) { free(p.el); parts.splice(j, 1); }
+              else { p.el.style.left = p.x + 'px'; p.el.style.top = p.y + 'px'; p.el.style.width = p.size + 'px'; p.el.style.height = p.size + 'px'; p.el.style.opacity = p.life.toFixed(4); p.el.style.background = 'radial-gradient(circle,rgba(' + p.r + ',' + p.g + ',' + p.b + ',' + (p.life * p.a).toFixed(4) + '),transparent)'; }
+            }
+            raf = requestAnimationFrame(tick);
+          }
+
+          function onMove(e) { tx = e.clientX; ty = e.clientY; var dx = tx - mx, dy = ty - my, dist = Math.sqrt(dx * dx + dy * dy), str = Math.min(dist / 45, 1); if (dist > 2) { spawnBurst(tx, ty, str); if (dist > 8) spawnRing(tx, ty, str); } }
+          function onEnter() { ct.style.display = 'block'; mx = tx; my = ty; dot.style.left = tx + 'px'; dot.style.top = ty + 'px'; dot.style.opacity = '1'; if (!raf) raf = requestAnimationFrame(tick); }
+          function onLeave() { ct.style.display = 'none'; dot.style.opacity = '0'; }
+
+          // Register all marked sections
+          for (var k = 0; k < M.length; k++) {
+            var s = M[k].parentElement;
+            if (!s || s.tagName !== 'SECTION') continue;
+            M[k].remove();
+            s.addEventListener('mousemove', onMove);
+            s.addEventListener('mouseenter', onEnter);
+            s.addEventListener('mouseleave', onLeave);
+          }
+
+          window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', function (e) { if (e.matches) { cancelAnimationFrame(raf); raf = 0; ct.remove(); } });
+        });
+      })();
+    </script>
   </body>
 </html>
