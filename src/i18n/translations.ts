@@ -124,7 +124,7 @@ export const translations: Record<Locale, TranslationDict> = {
           description: 'Platform booking tur end-to-end: katalog publik, checkout, payment via Midtrans, dashboard traveler, dan admin panel via Filament.',
           tech: ['Laravel 12', 'Filament', 'Midtrans', 'MySQL'],
           image: '/project-images/Thumbnail-EziTour.png',
-          url: 'https://github.com/ryansutrisno/ezitour',
+          url: 'https://github.com/trazmedia/ezitour',
           category: 'Web Apps',
         },
         {
@@ -144,7 +144,7 @@ export const translations: Record<Locale, TranslationDict> = {
           description: 'Aplikasi manajemen reseller dengan autentikasi berbasis role, dashboard admin/reseller, master data produk, gudang, inventory, price tier, reward, dan tracking stok.',
           tech: ['Laravel', 'Inertia.js', 'React 19', 'TypeScript', 'Tailwind v4'],
           image: '/project-images/screencapture-gojamu-reseller-test-admin-dashboard-2026-05-21-05_29_20.png',
-          url: 'https://github.com/ryansutrisno/gojamu-reseller',
+          url: 'https://github.com/trazmedia/gojamu-reseller',
           category: 'Web Apps',
         },
         {
@@ -154,7 +154,7 @@ export const translations: Record<Locale, TranslationDict> = {
           description: 'Platform cohort-based untuk pembelajaran ngaji online. Menghubungkan santri dengan ustadz terverifikasi melalui program berbasis batch dan pembayaran.',
           tech: ['Laravel', 'Inertia.js', 'React 19', 'TypeScript', 'Tailwind v4'],
           image: '/project-images/Thumbnail-Suntree.png',
-          url: 'https://github.com/ryansutrisno/suntree',
+          url: 'https://github.com/trazmedia/suntree',
           category: 'Web Apps',
         },
         {
@@ -164,7 +164,7 @@ export const translations: Record<Locale, TranslationDict> = {
           description: 'Aplikasi kasir sederhana yang membantu pemilik toko kecil dan UMKM memantau produk, stok, transaksi, keuangan, dan alert reorder dari satu dashboard.',
           tech: ['Laravel', 'PHP', 'Blade', 'MySQL'],
           image: '/project-images/Dashboard-Simpel-POS-Light.png',
-          url: 'https://github.com/ryansutrisno/simpel-pos-laravel',
+          url: 'https://github.com/trazmedia/simpel-pos-laravel',
           category: 'Web Apps',
         },
         {
@@ -194,7 +194,7 @@ export const translations: Record<Locale, TranslationDict> = {
           description: 'Tool berbasis AI untuk generate icon isometric dengan cepat. Dibangun dengan TypeScript dan di-deploy di Vercel.',
           tech: ['TypeScript', 'AI', 'Vercel'],
           image: '/project-images/isometric-icon-generator.png',
-          url: 'https://isometricon-generator.vercel.app',
+          url: 'https://isometricon.trazmedia.com',
           category: 'Web Apps',
         },
         {
@@ -390,7 +390,7 @@ export const translations: Record<Locale, TranslationDict> = {
           description: 'An end-to-end tour booking platform: public catalog, checkout, Midtrans payment, traveler dashboard, and Filament admin panel.',
           tech: ['Laravel 12', 'Filament', 'Midtrans', 'MySQL'],
           image: '/project-images/Thumbnail-EziTour.png',
-          url: 'https://github.com/ryansutrisno/ezitour',
+          url: 'https://github.com/trazmedia/ezitour',
           category: 'Web Apps',
         },
         {
@@ -410,7 +410,7 @@ export const translations: Record<Locale, TranslationDict> = {
           description: 'A reseller management app with role-based authentication, admin/reseller dashboards, product master data, warehouse, inventory, price tiers, rewards, and stock tracking.',
           tech: ['Laravel', 'Inertia.js', 'React 19', 'TypeScript', 'Tailwind v4'],
           image: '/project-images/screencapture-gojamu-reseller-test-admin-dashboard-2026-05-21-05_29_20.png',
-          url: 'https://github.com/ryansutrisno/gojamu-reseller',
+          url: 'https://github.com/trazmedia/gojamu-reseller',
           category: 'Web Apps',
         },
         {
@@ -420,7 +420,7 @@ export const translations: Record<Locale, TranslationDict> = {
           description: 'A cohort-based platform for online Quran learning. Connects students with verified teachers through batch-based programs and payment confirmation.',
           tech: ['Laravel', 'Inertia.js', 'React 19', 'TypeScript', 'Tailwind v4'],
           image: '/project-images/Thumbnail-Suntree.png',
-          url: 'https://github.com/ryansutrisno/suntree',
+          url: 'https://github.com/trazmedia/suntree',
           category: 'Web Apps',
         },
         {
@@ -430,7 +430,7 @@ export const translations: Record<Locale, TranslationDict> = {
           description: 'A simple POS application that helps small shop owners and UMKM track products, stock, transactions, finances, and reorder alerts from a single dashboard.',
           tech: ['Laravel', 'PHP', 'Blade', 'MySQL'],
           image: '/project-images/Dashboard-Simpel-POS-Light.png',
-          url: 'https://github.com/ryansutrisno/simpel-pos-laravel',
+          url: 'https://github.com/trazmedia/simpel-pos-laravel',
           category: 'Web Apps',
         },
         {
@@ -460,7 +460,7 @@ export const translations: Record<Locale, TranslationDict> = {
           description: 'An AI-based tool for quickly generating isometric icons. Built with TypeScript and deployed on Vercel.',
           tech: ['TypeScript', 'AI', 'Vercel'],
           image: '/project-images/isometric-icon-generator.png',
-          url: 'https://isometricon-generator.vercel.app',
+          url: 'https://isometricon.trazmedia.com',
           category: 'Web Apps',
         },
         {
