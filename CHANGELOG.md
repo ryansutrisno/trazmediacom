@@ -1,3 +1,9 @@
+## [1.6.0](https://github.com/ryansutrisno/trazmediacom/compare/v1.5.1...v1.6.0) (2026-08-08)
+
+### Features
+
+* add water ripple cursor effect to page heroes ([bcbd2f2](https://github.com/ryansutrisno/trazmediacom/commit/bcbd2f2bf262d88a253d2ad12acab36eb4a4a46f))
+
 ## [1.5.1](https://github.com/ryansutrisno/trazmediacom/compare/v1.5.0...v1.5.1) (2026-08-08)
 
 ### Code Refactoring
