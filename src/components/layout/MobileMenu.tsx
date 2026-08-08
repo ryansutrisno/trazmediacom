@@ -11,6 +11,14 @@ export default function MobileMenu({ locale, t }: Props) {
   const [open, setOpen] = useState(false);
   const altLocale = getAlternateLocale(locale);
 
+  // Track current path as state so active item stays correct across opens
+  const [currentPath, setCurrentPath] = useState('/');
+  useEffect(() => {
+    setCurrentPath(
+      window.location.pathname.replace(/\/$/, '').replace(/^\/(id|en)/, '') || '/'
+    );
+  }, []);
+
   // Listen for open trigger from Navbar hamburger
   useEffect(() => {
     const handler = () => setOpen(true);
@@ -31,11 +39,6 @@ export default function MobileMenu({ locale, t }: Props) {
     }
     document.body.style.overflow = '';
   }, [open]);
-
-  const currentPath =
-    typeof window !== 'undefined'
-      ? window.location.pathname.replace(/\/$/, '').replace(/^\/(id|en)/, '') || '/'
-      : '/';
 
   const isActive = (href: string) =>
     href === '/' ? currentPath === '/' : currentPath === href || currentPath.startsWith(href + '/');
