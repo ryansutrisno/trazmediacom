@@ -60,7 +60,7 @@ export const translations: Record<Locale, TranslationDict> = {
     about: {
       hero: {
         heading: 'Tentang Trazmedia',
-        description: 'Berdiri sejak 2017 di Sleman, Yogyakarta. Kami adalah software house yang fokus membantu UMKM dan bisnis Indonesia bertransformasi secara digital.',
+        description: 'Berdiri sejak 2017 di Yogyakarta. Kami adalah software house yang fokus membantu UMKM dan bisnis Indonesia bertransformasi secara digital.',
       },
       vision: {
         heading: 'Visi Kami',
@@ -326,7 +326,7 @@ export const translations: Record<Locale, TranslationDict> = {
     about: {
       hero: {
         heading: 'About Trazmedia',
-        description: 'Founded in 2017 in Sleman, Yogyakarta. We are a software house focused on helping Indonesian UMKM and businesses transform digitally.',
+        description: 'Founded in 2017 in Yogyakarta. We are a software house focused on helping Indonesian UMKM and businesses transform digitally.',
       },
       vision: {
         heading: 'Our Vision',

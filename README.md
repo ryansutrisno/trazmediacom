@@ -1,6 +1,6 @@
 # 🌊 Trazmedia
 
-Website resmi Trazmedia — software house Indonesia berbasis di Sleman, Yogyakarta. Dibangun dengan [Astro](https://astro.build) + [Tailwind CSS v4](https://tailwindcss.com) dan di-deploy di [Vercel](https://vercel.com).
+Website resmi Trazmedia — software house Indonesia berbasis di Yogyakarta. Dibangun dengan [Astro](https://astro.build) + [Tailwind CSS v4](https://tailwindcss.com) dan di-deploy di [Vercel](https://vercel.com).
 
 > **"Code that scales, design that converts"**
 

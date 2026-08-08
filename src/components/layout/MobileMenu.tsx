@@ -13,9 +13,13 @@ export default function MobileMenu({ locale, t }: Props) {
 
   // Track current path as state so active item stays correct across opens
   const [currentPath, setCurrentPath] = useState('/');
+  const [altPath, setAltPath] = useState('');
   useEffect(() => {
     setCurrentPath(
       window.location.pathname.replace(/\/$/, '').replace(/^\/(id|en)/, '') || '/'
+    );
+    setAltPath(
+      window.location.pathname.replace(/\/$/, '').replace(/^\/(id|en)/, '') || ''
     );
   }, []);
 
@@ -43,11 +47,6 @@ export default function MobileMenu({ locale, t }: Props) {
   const isActive = (href: string) =>
     href === '/' ? currentPath === '/' : currentPath === href || currentPath.startsWith(href + '/');
 
-  const altPath =
-    typeof window !== 'undefined'
-      ? window.location.pathname.replace(/\/$/, '').replace(/^\/(id|en)/, '') || ''
-      : '';
-
   return (
     <>
       {/* Backdrop */}
@@ -69,7 +68,7 @@ export default function MobileMenu({ locale, t }: Props) {
         aria-label="Menu"
       >
         <div className="flex items-center justify-between border-b border-border px-5 py-4">
-          <img src="/logo.svg" alt={t.site.name} className="h-7 w-auto" />
+          <img src="/logo.svg" alt={t.site.name} className="h-9 w-auto" />
           <button
             type="button"
             onClick={() => setOpen(false)}
@@ -110,9 +109,9 @@ export default function MobileMenu({ locale, t }: Props) {
             href={`/${altLocale}${altPath === '' ? '/' : altPath}`}
             className="flex items-center justify-center gap-2 rounded-xl border border-border px-4 py-3 text-sm font-semibold text-text transition-colors hover:border-primary hover:text-primary"
           >
-            <span className="opacity-60">{locale}</span>
+            <span className="opacity-60 uppercase">{locale}</span>
             <span aria-hidden="true" className="text-border">↔</span>
-            <span>{altLocale}</span>
+            <span className="uppercase">{altLocale}</span>
           </a>
         </div>
       </aside>

@@ -13,7 +13,6 @@ interface Props {
 
 const { locale, t, title, description } = Astro.props;
 const alternateLinks = getAlternateLinks(Astro.url.pathname);
-const metaPixelId = import.meta.env.PUBLIC_META_PIXEL_ID || null;
 const pageTitle = title ? `${title} | ${t.site.name}` : `${t.site.name} — ${t.site.tagline}`;
 const pageDesc = description ?? t.site.description;
 ---
@@ -45,12 +44,6 @@ const pageDesc = description ?? t.site.description;
 
     <Analytics />
 
-    {metaPixelId && (
-      <script>
-        {`!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','${metaPixelId}');fbq('track','PageView');`}
-      </script>
-      <noscript><img height="1" width="1" style="display:none" src={`https://www.facebook.com/tr?id=${metaPixelId}&ev=PageView&noscript=1`} /></noscript>
-    )}
   </head>
   <body>
     <slot />
@@ -58,7 +51,7 @@ const pageDesc = description ?? t.site.description;
       // Water ripple cursor effect — deferred, single global instance
       (function d() {
         if (document.readyState === 'loading') return document.addEventListener('DOMContentLoaded', d);
-        var idle = window.requestIdleCallback || function (fn) { setTimeout(fn, 200); };
+        var idle = window.requestIdleCallback || function (fn) { setTimeout(fn, 100); };
         idle(function () {
           if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
           var M = document.querySelectorAll('[data-wc-marker]');
