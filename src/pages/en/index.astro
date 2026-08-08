@@ -14,7 +14,7 @@ const locale: Locale = 'en';
 const t = getTranslations(locale);
 ---
 
-<BaseLayout locale={locale} t={t} title={t.site.name} description={t.site.description}>
+<BaseLayout locale={locale} t={t} description={t.site.description}>
   <Navbar locale={locale} t={t} />
   <MobileMenu locale={locale} t={t} client:load />
   <main>
