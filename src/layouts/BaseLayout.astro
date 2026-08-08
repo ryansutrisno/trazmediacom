@@ -1,6 +1,7 @@
 ---
 import type { Locale, TranslationDict } from '@/types/i18n';
 import { getAlternateLinks, getAlternateLocale } from '@i18n/index';
+import Analytics from '@vercel/analytics/astro';
 import '@styles/global.css';
 
 interface Props {
@@ -41,6 +42,8 @@ const pageDesc = description ?? t.site.description;
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <Analytics />
 
     {metaPixelId && (
       <script>
