@@ -1,3 +1,17 @@
+## [1.6.1](https://github.com/ryansutrisno/trazmediacom/compare/v1.6.0...v1.6.1) (2026-08-08)
+
+### Bug Fixes
+
+* **mobile-menu:** track current path in state ([52c1f61](https://github.com/ryansutrisno/trazmediacom/commit/52c1f61b1a1773b061803bb802d9d8f6cbe649bd))
+
+### Documentation
+
+* update site content and navbar layout ([8829175](https://github.com/ryansutrisno/trazmediacom/commit/8829175664ee9dade3eef5774974ab6b66420ed4))
+
+### Chores
+
+* remove fb pixel, update site content ([9549b55](https://github.com/ryansutrisno/trazmediacom/commit/9549b558abeab8f792a43b36c7c8d94b1e010585))
+
 ## [1.6.0](https://github.com/ryansutrisno/trazmediacom/compare/v1.5.1...v1.6.0) (2026-08-08)
 
 ### Features
