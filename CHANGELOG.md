@@ -1,3 +1,9 @@
+## [1.5.1](https://github.com/ryansutrisno/trazmediacom/compare/v1.5.0...v1.5.1) (2026-08-08)
+
+### Code Refactoring
+
+* **pages:** remove redundant title prop from BaseLayout calls ([1bbc943](https://github.com/ryansutrisno/trazmediacom/commit/1bbc943ae9af1498b5232355878f77583d7770ab))
+
 ## [1.5.0](https://github.com/ryansutrisno/trazmediacom/compare/v1.4.2...v1.5.0) (2026-08-08)
 
 ### Features
