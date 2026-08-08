@@ -1,3 +1,9 @@
+## [1.4.2](https://github.com/ryansutrisno/trazmediacom/compare/v1.4.1...v1.4.2) (2026-08-08)
+
+### Chores
+
+* remove WhatsApp floating button from all page templates ([7a181ff](https://github.com/ryansutrisno/trazmediacom/commit/7a181ff750f2a59b4e6da4051d8686c5ffd3f574))
+
 ## [1.4.1](https://github.com/ryansutrisno/trazmediacom/compare/v1.4.0...v1.4.1) (2026-08-08)
 
 ### Documentation
