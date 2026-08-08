@@ -1,3 +1,9 @@
+## [1.2.12](https://github.com/ryansutrisno/trazmediacom/compare/v1.2.11...v1.2.12) (2026-08-07)
+
+### Bug Fixes
+
+* add vercel edge redirect for root route and use location.replace ([aebee6e](https://github.com/ryansutrisno/trazmediacom/commit/aebee6e4c1af96fb7dc74ae7350a299beef7d79d))
+
 ## [1.2.11](https://github.com/ryansutrisno/trazmediacom/compare/v1.2.10...v1.2.11) (2026-08-07)
 
 ### Bug Fixes
