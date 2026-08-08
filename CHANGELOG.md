@@ -1,3 +1,9 @@
+## [1.5.0](https://github.com/ryansutrisno/trazmediacom/compare/v1.4.2...v1.5.0) (2026-08-08)
+
+### Features
+
+* add Vercel Web Analytics tracking ([06eae33](https://github.com/ryansutrisno/trazmediacom/commit/06eae3390532f7b0a65db8d12eacbe0410b83130))
+
 ## [1.4.2](https://github.com/ryansutrisno/trazmediacom/compare/v1.4.1...v1.4.2) (2026-08-08)
 
 ### Chores
