@@ -5,12 +5,10 @@ import type { Locale } from '@/types/i18n';
 import Navbar from '@components/layout/Navbar.astro';
 import Footer from '@components/layout/Footer.astro';
 import MobileMenu from '@components/layout/MobileMenu.tsx';
-import WAFloatingButton from '@components/layout/WAFloatingButton.tsx';
 import PortfolioPage from '@components/sections/PortfolioPage.astro';
 
 const locale: Locale = 'en';
 const t = getTranslations(locale);
-const waNumber = import.meta.env.PUBLIC_WA_NUMBER;
 ---
 
 <BaseLayout locale={locale} t={t} title={t.portfolio.hero.heading} description={t.portfolio.hero.description}>
@@ -20,5 +18,4 @@ const waNumber = import.meta.env.PUBLIC_WA_NUMBER;
     <PortfolioPage locale={locale} t={t} />
   </main>
   <Footer locale={locale} t={t} />
-  <WAFloatingButton waNumber={waNumber} message={t.cta.waMessage} client:load />
 </BaseLayout>

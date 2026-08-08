@@ -5,7 +5,6 @@ import type { Locale } from '@/types/i18n';
 import Navbar from '@components/layout/Navbar.astro';
 import Footer from '@components/layout/Footer.astro';
 import MobileMenu from '@components/layout/MobileMenu.tsx';
-import WAFloatingButton from '@components/layout/WAFloatingButton.tsx';
 import PortfolioDetail from '@components/sections/PortfolioDetail.astro';
 
 export const prerender = true;
@@ -27,7 +26,6 @@ if (!project) {
   return Astro.redirect(`/${locale}/portfolio`);
 }
 
-const waNumber = import.meta.env.PUBLIC_WA_NUMBER;
 ---
 
 <BaseLayout locale={locale} t={t} title={project.title} description={project.tagline}>
@@ -37,5 +35,4 @@ const waNumber = import.meta.env.PUBLIC_WA_NUMBER;
     <PortfolioDetail locale={locale} t={t} project={project} />
   </main>
   <Footer locale={locale} t={t} />
-  <WAFloatingButton waNumber={waNumber} message={t.cta.waMessage} client:load />
 </BaseLayout>
