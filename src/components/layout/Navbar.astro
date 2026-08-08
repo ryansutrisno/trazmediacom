@@ -56,7 +56,7 @@ const isActive = (href: string) => {
     <div class="flex items-center gap-2">
       <a
         href={`/${altLocale}${altPath === '' ? '/' : altPath}`}
-        class="group flex items-center gap-1.5 rounded-full border border-border bg-surface px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-text-muted transition-colors hover:border-primary hover:text-primary"
+        class="hidden md:flex group items-center gap-1.5 rounded-full border border-border bg-surface px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-text-muted transition-colors hover:border-primary hover:text-primary"
         aria-label={`Switch to ${altLocale}`}
       >
         <span class="opacity-60 group-hover:opacity-100">{locale}</span>
