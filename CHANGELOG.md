@@ -1,3 +1,9 @@
+## [1.3.0](https://github.com/ryansutrisno/trazmediacom/compare/v1.2.12...v1.3.0) (2026-08-08)
+
+### Features
+
+* add locale-based redirect and SEO support ([0d33477](https://github.com/ryansutrisno/trazmediacom/commit/0d33477ee70dca2424ef25e768e1926281d25dcd))
+
 ## [1.2.12](https://github.com/ryansutrisno/trazmediacom/compare/v1.2.11...v1.2.12) (2026-08-07)
 
 ### Bug Fixes
