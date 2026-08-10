@@ -1,3 +1,9 @@
+## [1.7.0](https://github.com/ryansutrisno/trazmediacom/compare/v1.6.1...v1.7.0) (2026-08-10)
+
+### Features
+
+* **FAQSection:** add accordion and fix icons ([81ab8b2](https://github.com/ryansutrisno/trazmediacom/commit/81ab8b2778254a7c2ef836bf07501155f83975fc))
+
 ## [1.6.1](https://github.com/ryansutrisno/trazmediacom/compare/v1.6.0...v1.6.1) (2026-08-08)
 
 ### Bug Fixes
