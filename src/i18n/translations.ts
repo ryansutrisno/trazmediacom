@@ -6,7 +6,7 @@ export const translations: Record<Locale, TranslationDict> = {
       name: 'Trazmedia',
       tagline: 'Code that scales, design that converts',
       secondaryTagline: 'Bridging design + code + business',
-      description: 'Trazmedia adalah software house Indonesia yang membantu UMKM naik kelas secara digital melalui web & mobile development.',
+      description: 'Trazmedia adalah software house yang membantu UMKM dan bisnis di seluruh dunia naik kelas secara digital melalui web & mobile development.',
       url: 'https://trazmedia.com',
       ogImage: '/Thumbnail-Trazmedia-Id.png',
     },
@@ -22,7 +22,7 @@ export const translations: Record<Locale, TranslationDict> = {
       hero: {
         greeting: 'Halo, kami',
         heading: 'Membangun Produk Digital yang Scalable untuk Bisnis Anda',
-        description: 'Kami bantu UMKM dan bisnis Indonesia membangun website, aplikasi mobile, dan sistem digital yang modern, cepat, dan mudah dikelola.',
+        description: 'Kami bantu UMKM dan bisnis di seluruh dunia membangun website, aplikasi mobile, dan sistem digital yang modern, cepat, dan mudah dikelola.',
         cta: 'Mulai Konsultasi',
       },
       services: {
@@ -60,7 +60,7 @@ export const translations: Record<Locale, TranslationDict> = {
     about: {
       hero: {
         heading: 'Tentang Trazmedia',
-        description: 'Berdiri sejak 2017 di Yogyakarta. Kami adalah software house yang fokus membantu UMKM dan bisnis Indonesia bertransformasi secara digital.',
+        description: 'Berdiri sejak 2017 di Yogyakarta. Kami adalah software house yang fokus membantu UMKM dan bisnis di seluruh dunia bertransformasi secara digital.',
       },
       vision: {
         heading: 'Visi Kami',
@@ -272,7 +272,7 @@ export const translations: Record<Locale, TranslationDict> = {
       name: 'Trazmedia',
       tagline: 'Code that scales, design that converts',
       secondaryTagline: 'Bridging design + code + business',
-      description: 'Trazmedia is an Indonesian software house helping UMKM level up digitally through web & mobile development.',
+      description: 'Trazmedia is a software house helping businesses worldwide level up digitally through web & mobile development.',
       url: 'https://trazmedia.com',
       ogImage: '/Thumbnail-Trazmedia-En.png',
     },
@@ -288,7 +288,7 @@ export const translations: Record<Locale, TranslationDict> = {
       hero: {
         greeting: 'Hello, we are',
         heading: 'Building Scalable Digital Products for Your Business',
-        description: 'We help Indonesian UMKM and businesses build modern, fast, and easy-to-manage websites, mobile apps, and digital systems.',
+        description: 'We help businesses and startups worldwide build modern, fast, and easy-to-manage websites, mobile apps, and digital systems.',
         cta: 'Start Consultation',
       },
       services: {
@@ -326,7 +326,7 @@ export const translations: Record<Locale, TranslationDict> = {
     about: {
       hero: {
         heading: 'About Trazmedia',
-        description: 'Founded in 2017 in Yogyakarta. We are a software house focused on helping Indonesian UMKM and businesses transform digitally.',
+        description: 'Founded in 2017 in Yogyakarta. We are a software house focused on helping businesses worldwide transform digitally.',
       },
       vision: {
         heading: 'Our Vision',
