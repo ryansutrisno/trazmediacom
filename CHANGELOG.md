@@ -1,3 +1,13 @@
+## [1.8.0](https://github.com/ryansutrisno/trazmediacom/compare/v1.7.0...v1.8.0) (2026-08-20)
+
+### Features
+
+* **hero-section:** add animated CTA effects and format code ([ed65ad1](https://github.com/ryansutrisno/trazmediacom/commit/ed65ad12c1eb2c614aed34dd6731c1d89a827500))
+
+### Documentation
+
+* **i18n:** update translations to target global businesses ([d7c8da6](https://github.com/ryansutrisno/trazmediacom/commit/d7c8da64d3171df69a14b053bf6d74d98180ba15))
+
 ## [1.7.0](https://github.com/ryansutrisno/trazmediacom/compare/v1.6.1...v1.7.0) (2026-08-10)
 
 ### Features
