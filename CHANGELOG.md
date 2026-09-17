@@ -1,3 +1,9 @@
+## [1.10.0](https://github.com/ryansutrisno/trazmediacom/compare/v1.9.0...v1.10.0) (2026-09-17)
+
+### Features
+
+* **analytics:** track WhatsApp clicks as Meta Pixel Contact events ([ff2f328](https://github.com/ryansutrisno/trazmediacom/commit/ff2f328a4e376f4bce5b262e355410f57c2370d1))
+
 ## [1.9.0](https://github.com/ryansutrisno/trazmediacom/compare/v1.8.1...v1.9.0) (2026-09-17)
 
 ### Features
