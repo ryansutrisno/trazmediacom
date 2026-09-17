@@ -1,3 +1,9 @@
+## [1.9.0](https://github.com/ryansutrisno/trazmediacom/compare/v1.8.1...v1.9.0) (2026-09-17)
+
+### Features
+
+* **analytics:** add Meta Pixel tracking gated by PUBLIC_META_PIXEL_ID ([c71745c](https://github.com/ryansutrisno/trazmediacom/commit/c71745c1302fe1438df78a86400fca6e8543cb0b))
+
 ## [1.8.1](https://github.com/ryansutrisno/trazmediacom/compare/v1.8.0...v1.8.1) (2026-09-17)
 
 ### Chores
