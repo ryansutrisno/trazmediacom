@@ -1,3 +1,9 @@
+## [1.8.1](https://github.com/ryansutrisno/trazmediacom/compare/v1.8.0...v1.8.1) (2026-09-17)
+
+### Chores
+
+* update project URLs to live demo domains ([685e7bf](https://github.com/ryansutrisno/trazmediacom/commit/685e7bf56a60dee11ffc689809a12002fe2183a9))
+
 ## [1.8.0](https://github.com/ryansutrisno/trazmediacom/compare/v1.7.0...v1.8.0) (2026-08-20)
 
 ### Features
