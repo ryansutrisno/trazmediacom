@@ -1,43 +1,15 @@
 ---
+import { getPreferredLocale } from '@/i18n';
+
 export const prerender = false;
 
-// Detect visitor locale: Vercel geo-IP header → Accept-Language → default ID
-const country = Astro.request.headers.get('x-vercel-ip-country');
+// Detect visitor locale: Vercel geo-IP header → Accept-Language → default ID.
+// Non-Indonesian countries (e.g. Europe) get /en, Indonesia gets /id.
+const country = (Astro.request.headers.get('x-vercel-ip-country') || '').toUpperCase();
 const acceptLang = Astro.request.headers.get('accept-language') || '';
-const hasID = acceptLang.toLowerCase().includes('id');
-const isID = country === 'ID' || (hasID && !country);
+const locale = country === 'ID' ? 'id' : country ? 'en' : getPreferredLocale(acceptLang, 'id');
 
-const title = 'Trazmedia — Code that scales, design that converts';
-const desc = isID
-  ? 'Trazmedia adalah software house Indonesia yang membantu UMKM naik kelas secara digital melalui web & mobile development.'
-  : 'Trazmedia is an Indonesian software house helping SMEs level up digitally through web & mobile development.';
-const ogImage = isID
-  ? 'Thumbnail-Trazmedia-Id.png'
-  : 'Thumbnail-Trazmedia-En.png';
-const locale = isID ? 'id' : 'en';
-const ogLocale = isID ? 'id_ID' : 'en_US';
-const redirectPath = `/${locale}/`; // e.g. /id/ or /en/
+// Server-side redirect so the locale is decided before anything is rendered,
+// avoiding a flash of the wrong page and keeping the response cacheable.
+return Astro.redirect(`/${locale}/`, 302);
 ---
-
-<!doctype html>
-<html lang={locale}>
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{title}</title>
-  <meta name="description" content={desc} />
-
-  <link rel="canonical" href={`https://trazmedia.com${redirectPath}`} />
-
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={desc} />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content={`https://trazmedia.com${redirectPath}`} />
-  <meta property="og:image" content={`https://trazmedia.com/${ogImage}`} />
-  <meta property="og:locale" content={ogLocale} />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <script>location.replace('{redirectPath}')</script>
-</head>
-<body></body>
-</html>

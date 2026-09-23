@@ -15,6 +15,9 @@ export default defineConfig({
     locales: ['id', 'en'],
     routing: {
       prefixDefaultLocale: true,
+      // Let src/pages/index.astro decide the locale via geo-IP/Accept-Language
+      // instead of always 302-ing "/" to the default locale (/id/).
+      redirectToDefaultLocale: false,
     },
   },
 });
