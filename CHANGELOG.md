@@ -1,3 +1,9 @@
+## [1.10.1](https://github.com/ryansutrisno/trazmediacom/compare/v1.10.0...v1.10.1) (2026-09-23)
+
+### Bug Fixes
+
+* **i18n:** respect geo and Accept-Language on root route ([c8a5157](https://github.com/ryansutrisno/trazmediacom/commit/c8a515713d826470f21397d280c7fa2414f9373d))
+
 ## [1.10.0](https://github.com/ryansutrisno/trazmediacom/compare/v1.9.0...v1.10.0) (2026-09-17)
 
 ### Features
