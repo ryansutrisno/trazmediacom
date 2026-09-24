@@ -1,3 +1,9 @@
+## [1.10.2](https://github.com/ryansutrisno/trazmediacom/compare/v1.10.1...v1.10.2) (2026-09-24)
+
+### Bug Fixes
+
+* **i18n:** fall back to English when geo header is unavailable ([6fd4800](https://github.com/ryansutrisno/trazmediacom/commit/6fd48008904c6127d200137c8fd6344ddb21f52a))
+
 ## [1.10.1](https://github.com/ryansutrisno/trazmediacom/compare/v1.10.0...v1.10.1) (2026-09-23)
 
 ### Bug Fixes
