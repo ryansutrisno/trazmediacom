@@ -3,11 +3,13 @@ import { getPreferredLocale } from '@/i18n';
 
 export const prerender = false;
 
-// Detect visitor locale: Vercel geo-IP header → Accept-Language → default ID.
-// Non-Indonesian countries (e.g. Europe) get /en, Indonesia gets /id.
+// Detect visitor locale: Vercel geo-IP header → Accept-Language → default EN.
+// Indonesia gets /id; every other country (e.g. Europe) gets /en.
+// When the geo header is missing we only pick /id if the visitor explicitly
+// prefers Indonesian, otherwise we fall back to English rather than Indonesian.
 const country = (Astro.request.headers.get('x-vercel-ip-country') || '').toUpperCase();
 const acceptLang = Astro.request.headers.get('accept-language') || '';
-const locale = country === 'ID' ? 'id' : country ? 'en' : getPreferredLocale(acceptLang, 'id');
+const locale = country === 'ID' ? 'id' : country ? 'en' : getPreferredLocale(acceptLang, 'en');
 
 // Server-side redirect so the locale is decided before anything is rendered,
 // avoiding a flash of the wrong page and keeping the response cacheable.
