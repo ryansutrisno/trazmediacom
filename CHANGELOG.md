@@ -1,3 +1,9 @@
+## [1.11.0](https://github.com/ryansutrisno/trazmediacom/compare/v1.10.2...v1.11.0) (2026-09-26)
+
+### Features
+
+* **blog:** add SEO-driven blog with scheduled bilingual articles ([c433e7a](https://github.com/ryansutrisno/trazmediacom/commit/c433e7a4d7b060c7ba9aa5c161f73e42b99b7ea5))
+
 ## [1.10.2](https://github.com/ryansutrisno/trazmediacom/compare/v1.10.1...v1.10.2) (2026-09-24)
 
 ### Bug Fixes
