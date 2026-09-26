@@ -1,0 +1,307 @@
+---
+import type { Locale, TranslationDict } from '@/types/i18n';
+import { getAlternateLocale } from '@i18n/index';
+import { formatDate, isoDate, readingTimeLabel } from '@/components/blog/format';
+import type { BlogPostDetail } from '@/components/blog/types';
+
+interface Props {
+  locale: Locale;
+  t: TranslationDict;
+  post: BlogPostDetail;
+  Content: any;
+}
+
+const { locale, t, post, Content } = Astro.props;
+
+const otherLocale = getAlternateLocale(locale);
+const waNumber = import.meta.env.PUBLIC_WA_NUMBER;
+const waHref = `https://wa.me/${waNumber}?text=${encodeURIComponent(t.cta.waMessage)}`;
+
+const backLabel = locale === 'id' ? 'Kembali ke Blog' : 'Back to Blog';
+const authorLabel = locale === 'id' ? 'Penulis' : 'Author';
+const updatedPrefix = locale === 'id' ? 'Diperbarui' : 'Updated';
+const tagsLabel = locale === 'id' ? 'Tag Terkait' : 'Related Tags';
+const readInLabel = locale === 'id' ? 'Baca versi bahasa Inggris' : 'Read the Indonesian version';
+const ctaCopy =
+  locale === 'id'
+    ? 'Suka artikel ini? Ceritakan project atau idemu — kami siap membantu mewujudkannya.'
+    : 'Enjoyed this article? Tell us about your project or idea — we are ready to help build it.';
+
+const publishLabel = formatDate(locale, post.publishDate);
+const publishIso = isoDate(post.publishDate);
+const updatedLabel = post.updatedDate ? `${updatedPrefix} ${formatDate(locale, post.updatedDate)}` : null;
+const updatedIso = post.updatedDate ? isoDate(post.updatedDate) : null;
+const readingLabel = readingTimeLabel(locale, post.readingTime);
+const authorInitial = ((post.author || '?').trim().charAt(0) || '?').toUpperCase();
+---
+
+<!-- Hero -->
+<section class="relative overflow-hidden bg-surface-alt pt-16 lg:pt-20">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <a
+      href={`/${locale}/blog`}
+      class="group inline-flex items-center gap-2 text-sm font-semibold text-text-muted transition-colors hover:text-primary"
+    >
+      <svg class="h-4 w-4 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M11 17l-5-5 5-5M6 12h12" />
+      </svg>
+      {backLabel}
+    </a>
+
+    <div class="mt-8 max-w-3xl">
+      <span class="inline-flex items-center rounded-full bg-primary-light px-3 py-1 text-xs font-semibold text-primary">
+        {post.category}
+      </span>
+      <h1 class="mt-5 text-4xl font-extrabold leading-[1.1] tracking-tight text-text sm:text-5xl">
+        {post.title}
+      </h1>
+      <p class="mt-4 text-lg leading-relaxed text-text-muted">{post.description}</p>
+    </div>
+
+    <!-- Meta row -->
+    <div class="mt-8 max-w-3xl border-t border-border pt-6">
+      <div class="flex flex-wrap items-center gap-x-6 gap-y-4 text-sm text-text-muted">
+        <span class="inline-flex items-center gap-2.5">
+          <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-primary-light text-sm font-bold text-primary" aria-hidden="true">
+            {authorInitial}
+          </span>
+          <span class="leading-tight">
+            <span class="block text-[11px] font-semibold uppercase tracking-widest">{authorLabel}</span>
+            <span class="block text-sm font-semibold text-text">{post.author}</span>
+          </span>
+        </span>
+
+        <span class="inline-flex items-center gap-1.5">
+          <svg class="h-4 w-4 shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" />
+          </svg>
+          <time datetime={publishIso}>{publishLabel}</time>
+        </span>
+
+        {updatedIso && (
+          <span class="inline-flex items-center gap-1.5">
+            <svg class="h-4 w-4 shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-2.64-6.36M21 3v6h-6" />
+            </svg>
+            <time datetime={updatedIso}>{updatedLabel}</time>
+          </span>
+        )}
+
+        <span class="inline-flex items-center gap-1.5">
+          <svg class="h-4 w-4 shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"></circle>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 2"></path>
+          </svg>
+          <span>{readingLabel}</span>
+        </span>
+      </div>
+    </div>
+
+    {post.cover && (
+      <div class="mt-10 overflow-hidden rounded-2xl border border-border bg-surface shadow-xl shadow-text/5">
+        <img
+          src={post.cover}
+          alt={post.title}
+          class="aspect-[16/9] w-full object-cover object-top"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    )}
+  </div>
+</section>
+
+<!-- Article body -->
+<section class="bg-surface py-16 lg:py-20">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <article class="mx-auto max-w-3xl">
+      <div class="article-content">
+        <Content />
+      </div>
+
+      {post.keywords.length > 0 && (
+        <div class="mt-14 border-t border-border pt-8">
+          <h2 class="text-xs font-semibold uppercase tracking-widest text-text-muted">{tagsLabel}</h2>
+          <div class="mt-4 flex flex-wrap gap-2">
+            {post.keywords.map((keyword) => (
+              <span class="rounded-full border border-border bg-surface-alt px-3 py-1.5 font-mono text-xs font-medium text-text">
+                {keyword}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- Bottom nav row -->
+      <div class="mt-12 flex flex-wrap items-center justify-between gap-4">
+        <a
+          href={`/${locale}/blog`}
+          class="group inline-flex items-center gap-2 text-sm font-semibold text-text-muted transition-colors hover:text-primary"
+        >
+          <svg class="h-4 w-4 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M11 17l-5-5 5-5M6 12h12" />
+          </svg>
+          {backLabel}
+        </a>
+        <a
+          href={`/${otherLocale}/blog/${post.slug}`}
+          hreflang={otherLocale}
+          class="group inline-flex items-center gap-2 text-sm font-semibold text-text-muted transition-colors hover:text-primary"
+        >
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+          {readInLabel}
+        </a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="relative overflow-hidden bg-surface-alt py-20">
+  <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+    <p class="text-lg font-semibold text-text sm:text-xl">{ctaCopy}</p>
+    <a
+      href={waHref}
+      data-wa-source="Blog CTA"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="group mt-6 inline-flex items-center gap-2 rounded-xl bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-all hover:bg-primary-hover hover:shadow-xl active:scale-[0.98]"
+    >
+      {t.home.ctaBanner.button}
+      <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5M6 12h12" />
+      </svg>
+    </a>
+  </div>
+</section>
+
+<style is:global>
+  /* Long-form reading typography — no @tailwindcss/typography available, hand-rolled */
+  .article-content {
+    color: var(--color-text);
+    font-size: 1.0625rem;
+  }
+  .article-content > * + * {
+    margin-top: 1.25rem;
+  }
+  .article-content h2,
+  .article-content h3,
+  .article-content h4 {
+    color: var(--color-text);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+  }
+  .article-content h2 {
+    font-size: 1.875rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+  }
+  .article-content h3 {
+    font-size: 1.5rem;
+    margin-top: 2.25rem;
+    margin-bottom: 0.75rem;
+  }
+  .article-content h4 {
+    font-size: 1.25rem;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  .article-content p {
+    line-height: 1.75;
+  }
+  .article-content a {
+    color: var(--color-primary);
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s ease;
+  }
+  .article-content a:hover {
+    text-decoration-color: var(--color-primary);
+  }
+  .article-content ul {
+    list-style: disc;
+    padding-left: 1.375rem;
+  }
+  .article-content ol {
+    list-style: decimal;
+    padding-left: 1.375rem;
+  }
+  .article-content li {
+    line-height: 1.75;
+    margin-top: 0.5rem;
+  }
+  .article-content li::marker {
+    color: var(--color-primary);
+  }
+  .article-content blockquote {
+    border-left: 3px solid var(--color-primary);
+    background: var(--color-surface-alt);
+    border-radius: 0 0.75rem 0.75rem 0;
+    padding: 1rem 1.5rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+  .article-content blockquote > * + * {
+    margin-top: 0.75rem;
+  }
+  .article-content code {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    background: var(--color-surface-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 0.375rem;
+    padding: 0.125rem 0.375rem;
+  }
+  .article-content pre {
+    background: var(--color-surface-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    padding: 1.125rem 1.25rem;
+    overflow-x: auto;
+    font-size: 0.875rem;
+    line-height: 1.7;
+  }
+  .article-content pre code {
+    background: transparent;
+    border: 0;
+    padding: 0;
+  }
+  .article-content img {
+    border-radius: 1rem;
+    border: 1px solid var(--color-border);
+    margin-top: 1.75rem;
+  }
+  .article-content table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+  }
+  .article-content th {
+    text-align: left;
+    background: var(--color-surface-alt);
+    padding: 0.625rem 0.875rem;
+    border-bottom: 2px solid var(--color-border);
+    font-weight: 600;
+  }
+  .article-content td {
+    padding: 0.625rem 0.875rem;
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: top;
+  }
+  .article-content hr {
+    border: 0;
+    border-top: 1px solid var(--color-border);
+    margin: 3rem 0;
+  }
+  .article-content strong {
+    font-weight: 700;
+    color: var(--color-text);
+  }
+</style>
