@@ -49,12 +49,13 @@ const blogPosting = {
     name: 'Trazmedia',
     logo: { '@type': 'ImageObject', url: 'https://trazmedia.com/logo.svg' },
   },
+  image: post.cover ? new URL(post.cover, Astro.url.origin).href : undefined,
   mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
   keywords: post.keywords,
 };
 ---
 
-<BaseLayout locale={locale} t={t} title={post.title} description={post.description}>
+<BaseLayout locale={locale} t={t} title={post.title} description={post.description} image={post.cover}>
   <Fragment slot="head">
     <meta property="og:type" content="article" />
     <script type="application/ld+json" set:html={JSON.stringify(blogPosting)} />
