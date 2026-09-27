@@ -1,3 +1,9 @@
+## [1.13.0](https://github.com/ryansutrisno/trazmediacom/compare/v1.12.0...v1.13.0) (2026-09-27)
+
+### Features
+
+* **blog:** use article cover as per-article og:image ([dabd31b](https://github.com/ryansutrisno/trazmediacom/commit/dabd31b58097cc2cfc19729b726568fde8325da1))
+
 ## [1.12.0](https://github.com/ryansutrisno/trazmediacom/compare/v1.11.0...v1.12.0) (2026-09-27)
 
 ### Features
