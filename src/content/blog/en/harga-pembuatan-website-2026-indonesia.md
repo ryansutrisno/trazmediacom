@@ -2,6 +2,7 @@
 title: "Website Development Cost in Indonesia 2026 (Honest Guide)"
 description: "Honest 2026 price breakdown for landing pages, company profiles, online stores, and custom web apps in Indonesia — what drives the cost and how to avoid surprises."
 publishDate: 2026-09-27
+cover: "/blog/harga-pembuatan-website-2026-indonesia.jpg"
 author: "Trazmedia"
 category: "Bisnis"
 tags: ["harga-website", "web-development", "company-profile", "toko-online", "software-house"]

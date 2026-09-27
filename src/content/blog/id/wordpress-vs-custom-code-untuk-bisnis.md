@@ -2,6 +2,7 @@
 title: "WordPress vs Custom Code: Mana untuk Bisnis Anda?"
 description: "Banding jujur WordPress vs custom code (Astro/Next.js) untuk bisnis Indonesia: performa, SEO, keamanan, biaya 3 tahun. Panduan tanpa fanboy-ism."
 publishDate: 2026-10-01
+cover: "/blog/wordpress-vs-custom-code-untuk-bisnis.jpg"
 author: "Tim Trazmedia"
 category: "Web Development"
 tags: ["wordpress", "custom-code", "astro", "performance", "keamanan"]

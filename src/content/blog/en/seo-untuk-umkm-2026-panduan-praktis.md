@@ -2,6 +2,7 @@
 title: "SEO for Small Businesses in 2026: A Practical Guide"
 description: "Practical 2026 SEO playbook for Indonesian small businesses: keyword research, local SEO, on-page, and link building — plain language, real results."
 publishDate: 2026-10-02
+cover: "/blog/seo-untuk-umkm-2026-panduan-praktis.jpg"
 author: "Trazmedia"
 category: "SEO"
 tags: ["seo", "umkm", "local-seo", "google-business", "keyword-research"]

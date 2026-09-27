@@ -2,6 +2,7 @@
 title: "SEO untuk UMKM 2026: Panduan Praktis Halaman 1 Google"
 description: "Strategi SEO 2026 untuk UMKM Indonesia: riset keyword, local SEO, on-page, link building — tanpa jargon. Tingkatkan trafik organik & pelanggan."
 publishDate: 2026-10-02
+cover: "/blog/seo-untuk-umkm-2026-panduan-praktis.jpg"
 author: "Tim Trazmedia"
 category: "SEO"
 tags: ["seo", "umkm", "local-seo", "google-bisnis", "riset-keyword"]

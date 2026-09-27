@@ -2,6 +2,7 @@
 title: "Mobile App Development Cost in Indonesia 2026"
 description: "2026 price ranges for Android & iOS app development in Indonesia — native vs cross-platform, MVP vs enterprise, plus real project case studies."
 publishDate: 2026-10-03
+cover: "/blog/harga-pembuatan-aplikasi-mobile-android-ios-2026.jpg"
 author: "Trazmedia"
 category: "Mobile Apps"
 tags: ["mobile-app", "android", "ios", "react-native", "app-cost"]

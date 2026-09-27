@@ -2,6 +2,7 @@
 title: "Harga Pembuatan Website 2026 di Indonesia (Panduan Jujur)"
 description: "Update harga pembuatan website 2026: landing page, company profile, toko online, custom web app. Range, faktor penentu, dan tips hindari biaya tersembunyi."
 publishDate: 2026-09-27
+cover: "/blog/harga-pembuatan-website-2026-indonesia.jpg"
 author: "Tim Trazmedia"
 category: "Bisnis"
 tags: ["harga-website", "web-development", "company-profile", "toko-online", "software-house"]

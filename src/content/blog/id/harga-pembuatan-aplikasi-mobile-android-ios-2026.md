@@ -2,6 +2,7 @@
 title: "Harga Pembuatan Aplikasi Mobile 2026 di Indonesia"
 description: "Range harga pembuatan aplikasi Android & iOS 2026 di Indonesia. Native vs cross-platform, MVP vs enterprise, dan studi kasus dari proyek nyata."
 publishDate: 2026-10-03
+cover: "/blog/harga-pembuatan-aplikasi-mobile-android-ios-2026.jpg"
 author: "Tim Trazmedia"
 category: "Mobile Apps"
 tags: ["mobile-app", "android", "ios", "react-native", "harga-aplikasi"]

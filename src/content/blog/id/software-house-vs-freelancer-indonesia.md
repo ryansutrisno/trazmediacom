@@ -2,6 +2,7 @@
 title: "Software House vs Freelancer: Mana yang Tepat?"
 description: "Banding software house vs freelancer di Indonesia: harga, risiko, kualitas, komunikasi. Panduan jujur supaya proyek Anda tidak boncos."
 publishDate: 2026-09-30
+cover: "/blog/software-house-vs-freelancer-indonesia.jpg"
 author: "Tim Trazmedia"
 category: "Bisnis"
 tags: ["software-house", "freelancer", "vendor", "outsourcing", "web-development"]

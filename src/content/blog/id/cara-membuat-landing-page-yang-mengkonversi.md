@@ -2,6 +2,7 @@
 title: "Cara Membuat Landing Page yang Mengkonversi (Panduan 2026)"
 description: "Pelajari cara membuat landing page yang converting untuk iklan & bisnis Anda. Struktur, copywriting, CTA, dan contoh nyata untuk pasar Indonesia."
 publishDate: 2026-09-28
+cover: "/blog/cara-membuat-landing-page-yang-mengkonversi.jpg"
 author: "Tim Trazmedia"
 category: "Web Development"
 tags: ["landing-page", "konversi", "copywriting", "CRO", "digital-marketing"]

@@ -2,6 +2,7 @@
 title: "Astro vs Next.js: Framework Mana untuk Website Anda?"
 description: "Banding jujur Astro vs Next.js untuk bisnis Indonesia. Performa, SEO, biaya, dan kapan pakai masing-masing — tanpa fanboy-ism."
 publishDate: 2026-09-29
+cover: "/blog/astro-vs-nextjs-untuk-website-bisnis.jpg"
 author: "Tim Trazmedia"
 category: "Web Development"
 tags: ["astro", "nextjs", "framework", "performance", "seo-teknis"]

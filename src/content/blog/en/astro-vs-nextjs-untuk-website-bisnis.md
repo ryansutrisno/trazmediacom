@@ -2,6 +2,7 @@
 title: "Astro vs Next.js: Which Framework Fits Your Site?"
 description: "Honest Astro vs Next.js comparison for businesses — performance, SEO, cost, and when to pick each. No fanboy-ism."
 publishDate: 2026-09-29
+cover: "/blog/astro-vs-nextjs-untuk-website-bisnis.jpg"
 author: "Trazmedia"
 category: "Web Development"
 tags: ["astro", "nextjs", "framework", "performance", "seo-teknis"]

@@ -2,6 +2,7 @@
 title: "Software House vs Freelancer: Which Is Right for You?"
 description: "Software house vs freelancer in Indonesia — honest comparison on price, risk, quality, and communication, so your project doesn't go sideways."
 publishDate: 2026-09-30
+cover: "/blog/software-house-vs-freelancer-indonesia.jpg"
 author: "Trazmedia"
 category: "Bisnis"
 tags: ["software-house", "freelancer", "vendor", "outsourcing", "web-development"]

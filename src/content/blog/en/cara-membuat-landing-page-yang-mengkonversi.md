@@ -2,6 +2,7 @@
 title: "How to Build a High-Converting Landing Page (2026 Guide)"
 description: "Learn how to build a high-converting landing page in 2026 — structure, copy, CTA, and real examples tailored for businesses that run paid ads."
 publishDate: 2026-09-28
+cover: "/blog/cara-membuat-landing-page-yang-mengkonversi.jpg"
 author: "Trazmedia"
 category: "Web Development"
 tags: ["landing-page", "konversi", "copywriting", "CRO", "digital-marketing"]
