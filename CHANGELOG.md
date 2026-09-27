@@ -1,3 +1,9 @@
+## [1.12.0](https://github.com/ryansutrisno/trazmediacom/compare/v1.11.0...v1.12.0) (2026-09-27)
+
+### Features
+
+* **blog:** add cover thumbnails for all seven articles ([543882f](https://github.com/ryansutrisno/trazmediacom/commit/543882f5e911b940d0c667da42e45e85b1846c58))
+
 ## [1.11.0](https://github.com/ryansutrisno/trazmediacom/compare/v1.10.2...v1.11.0) (2026-09-26)
 
 ### Features
