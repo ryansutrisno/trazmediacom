@@ -1,3 +1,9 @@
+## [1.13.1](https://github.com/ryansutrisno/trazmediacom/compare/v1.13.0...v1.13.1) (2026-10-21)
+
+### Bug Fixes
+
+* **seo:** stop canonical URLs resolving to localhost ([9aa13d5](https://github.com/ryansutrisno/trazmediacom/commit/9aa13d5fa4c2d9ea5339a58b92c4b09ac1a48c6d))
+
 ## [1.13.0](https://github.com/ryansutrisno/trazmediacom/compare/v1.12.0...v1.13.0) (2026-09-27)
 
 ### Features
