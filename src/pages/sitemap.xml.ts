@@ -1,10 +1,16 @@
 import { getCollection } from 'astro:content';
 import { isPublished } from '@components/blog/format';
+import { canonicalPath, SITE_URL } from '@/lib/seo';
 
-export const prerender = false;
+// Generated once at build time so crawlers get instant XML from the CDN
+// instead of waiting on a serverless invocation.
+export const prerender = true;
 
-const siteUrl = (import.meta.env.PUBLIC_SITE_URL || 'https://trazmedia.com').replace(/\/$/, '');
+const siteUrl = SITE_URL.origin;
 const staticPaths = ['', 'about', 'services', 'portfolio', 'blog', 'contact'];
+// Frozen per deployment: a `lastmod` that changes on every request teaches
+// Google to ignore the field entirely.
+const buildTime = new Date().toISOString();
 
 function escapeXml(value: string): string {
   return value.replace(/[<>&'\"]/g, (character) => {
@@ -19,27 +25,33 @@ function escapeXml(value: string): string {
   });
 }
 
+function loc(path: string): string {
+  return `${siteUrl}${canonicalPath(path)}`;
+}
+
 function alternateLinks(path: string): string {
-  return ['id', 'en']
-    .map((locale) => `    <xhtml:link rel="alternate" hreflang="${locale}" href="${escapeXml(`${siteUrl}/${locale}/${path}`)}" />`)
-    .join('\n');
+  const clean = path.replace(/^(id|en)\//, '');
+  const links = ['id', 'en'].map(
+    (locale) => `    <xhtml:link rel="alternate" hreflang="${locale}" href="${escapeXml(loc(`/${locale}/${clean}`))}" />`,
+  );
+  links.push(`    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(`${siteUrl}/`)}" />`);
+  return links.join('\n');
 }
 
 function urlEntry(path: string, lastmod: string): string {
   return [
     '  <url>',
-    `    <loc>${escapeXml(`${siteUrl}/${path}`)}</loc>`,
-    alternateLinks(path.replace(/^(id|en)\//, '')),
+    `    <loc>${escapeXml(loc(`/${path}`))}</loc>`,
+    alternateLinks(path),
     `    <lastmod>${escapeXml(lastmod)}</lastmod>`,
     '  </url>',
   ].join('\n');
 }
 
 export async function GET() {
-  const lastmod = new Date().toISOString();
   const entries = staticPaths.flatMap((path) => [
-    urlEntry(`id/${path}`, lastmod),
-    urlEntry(`en/${path}`, lastmod),
+    urlEntry(`id/${path}`, buildTime),
+    urlEntry(`en/${path}`, buildTime),
   ]);
 
   const [idPosts, enPosts] = await Promise.all([getCollection('blogId'), getCollection('blogEn')]);

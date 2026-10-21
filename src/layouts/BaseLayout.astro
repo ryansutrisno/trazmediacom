@@ -1,6 +1,7 @@
 ---
 import type { Locale, TranslationDict } from '@/types/i18n';
 import { getAlternateLinks, getAlternateLocale } from '@i18n/index';
+import { absoluteUrl } from '@/lib/seo';
 import Analytics from '@vercel/analytics/astro';
 import '@styles/global.css';
 
@@ -11,12 +12,21 @@ interface Props {
   description?: string;
   /** Optional per-page social image (path or absolute URL). Falls back to the site default. */
   image?: string;
+  /** Open Graph object type; use `article` for blog posts. */
+  ogType?: 'website' | 'article';
 }
 
-const { locale, t, title, description, image } = Astro.props;
-const ogImageUrl = new URL(image ?? t.site.ogImage, Astro.url.origin).href;
+const { locale, t, title, description, image, ogType = 'website' } = Astro.props;
+// Build absolute URLs from the configured site, never from `Astro.url.origin`:
+// on Vercel SSR that origin degrades to `http://localhost`.
+const canonicalUrl = absoluteUrl(Astro.url.pathname);
+const ogImageUrl = absoluteUrl(image ?? t.site.ogImage);
 const metaPixelId = import.meta.env.PUBLIC_META_PIXEL_ID || null;
-const alternateLinks = getAlternateLinks(Astro.url.pathname);
+const alternateLinks = getAlternateLinks(Astro.url.pathname).map((link) => ({
+  locale: link.locale,
+  href: absoluteUrl(link.href),
+}));
+const xDefaultUrl = absoluteUrl('/');
 const pageTitle = title ? `${title} | ${t.site.name}` : `${t.site.name} — ${t.site.tagline}`;
 const pageDesc = description ?? t.site.description;
 ---
@@ -28,16 +38,17 @@ const pageDesc = description ?? t.site.description;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{pageTitle}</title>
     <meta name="description" content={pageDesc} />
-    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.url.origin).href} />
+    <link rel="canonical" href={canonicalUrl} />
     
     {alternateLinks.map(link => (
-      <link rel="alternate" hreflang={link.locale} href={new URL(link.href, Astro.url.origin).href} />
+      <link rel="alternate" hreflang={link.locale} href={link.href} />
     ))}
-    <link rel="alternate" hreflang="x-default" href={new URL('/id/', Astro.url.origin).href} />
+    <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={pageDesc} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={new URL(Astro.url.pathname, Astro.url.origin).href} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={t.site.name} />
     <meta property="og:image" content={ogImageUrl} />
     <meta property="og:locale" content={locale === 'id' ? 'id_ID' : 'en_US'} />
     <meta name="twitter:card" content="summary_large_image" />

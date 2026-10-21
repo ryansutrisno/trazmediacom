@@ -9,16 +9,25 @@ import MobileMenu from '@components/layout/MobileMenu.tsx';
 import BlogDetail from '@components/sections/BlogDetail.astro';
 import type { BlogPostDetail } from '@components/blog/types';
 import { isPublished } from '@components/blog/format';
+import { absoluteUrl } from '@/lib/seo';
 
-export const prerender = false;
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blogId');
+  const now = new Date();
+  return posts
+    .filter(({ data }) => !data.draft && isPublished(data.publishDate, now))
+    .map((post) => ({ params: { slug: post.id } }));
+}
 
 const locale: Locale = 'id';
 const t = getTranslations(locale);
 const { slug } = Astro.params;
 const entry = (await getCollection('blogId')).find((candidate) => candidate.id === slug);
 
-if (!entry || entry.data.draft || !isPublished(entry.data.publishDate)) {
-  return new Response('Not Found', { status: 404 });
+if (!entry) {
+  throw new Error(`Unknown blog post: ${slug}`);
 }
 
 const { Content } = await render(entry);
@@ -35,7 +44,7 @@ const post: BlogPostDetail = {
   readingTime: entry.data.readingTime,
   cover: entry.data.cover,
 };
-const canonicalUrl = new URL(Astro.url.pathname, Astro.url.origin).href;
+const canonicalUrl = absoluteUrl(Astro.url.pathname);
 const blogPosting = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
@@ -49,15 +58,16 @@ const blogPosting = {
     name: 'Trazmedia',
     logo: { '@type': 'ImageObject', url: 'https://trazmedia.com/logo.svg' },
   },
-  image: post.cover ? new URL(post.cover, Astro.url.origin).href : undefined,
+  image: post.cover ? absoluteUrl(post.cover) : undefined,
   mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
   keywords: post.keywords,
 };
 ---
 
-<BaseLayout locale={locale} t={t} title={post.title} description={post.description} image={post.cover}>
+<BaseLayout locale={locale} t={t} title={post.title} description={post.description} image={post.cover} ogType="article">
   <Fragment slot="head">
-    <meta property="og:type" content="article" />
+    <meta property="article:published_time" content={post.publishDate.toISOString()} />
+    <meta property="article:modified_time" content={(post.updatedDate ?? post.publishDate).toISOString()} />
     <script type="application/ld+json" set:html={JSON.stringify(blogPosting)} />
   </Fragment>
   <Navbar locale={locale} t={t} />
