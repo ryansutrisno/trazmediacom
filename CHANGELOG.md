@@ -1,3 +1,9 @@
+## [1.14.0](https://github.com/ryansutrisno/trazmediacom/compare/v1.13.1...v1.14.0) (2026-10-21)
+
+### Features
+
+* **portfolio:** point demo project links at their GitHub repositories ([3489d01](https://github.com/ryansutrisno/trazmediacom/commit/3489d017adf710fc3060f027b3efdfebe5a42590))
+
 ## [1.13.1](https://github.com/ryansutrisno/trazmediacom/compare/v1.13.0...v1.13.1) (2026-10-21)
 
 ### Bug Fixes
