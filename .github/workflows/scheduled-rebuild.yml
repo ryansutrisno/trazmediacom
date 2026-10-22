@@ -1,0 +1,26 @@
+name: Scheduled rebuild
+
+# Blog posts can carry future publish dates; the site is statically prerendered,
+# so a scheduled post only becomes a real page after a new build. This runs once
+# a day (00:05 WIB) and asks Vercel to rebuild so newly-due posts go live.
+
+on:
+  schedule:
+    # 17:05 UTC = 00:05 Asia/Jakarta
+    - cron: '5 17 * * *'
+  workflow_dispatch:
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel deploy hook
+        env:
+          DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$DEPLOY_HOOK" ]; then
+            echo "VERCEL_DEPLOY_HOOK secret is not set; skipping scheduled rebuild."
+            exit 0
+          fi
+          curl --fail --silent --show-error --request POST "$DEPLOY_HOOK"
+          echo "Deploy hook triggered."
