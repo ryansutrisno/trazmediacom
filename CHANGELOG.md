@@ -1,3 +1,9 @@
+## [1.15.0](https://github.com/ryansutrisno/trazmediacom/compare/v1.14.0...v1.15.0) (2026-10-22)
+
+### Features
+
+* **blog:** add POS selection and mobile app decision articles ([77aa57e](https://github.com/ryansutrisno/trazmediacom/commit/77aa57e818ef93a9b6bdde2c9ddc9cc32fba2d96))
+
 ## [1.14.0](https://github.com/ryansutrisno/trazmediacom/compare/v1.13.1...v1.14.0) (2026-10-21)
 
 ### Features
